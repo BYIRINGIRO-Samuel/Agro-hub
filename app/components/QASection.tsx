@@ -29,7 +29,7 @@ export default function QASection() {
       {/* Angled SVG Top Divider pointing into the previous section */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none z-0 transform -translate-y-1">
           <svg className="relative block w-full h-[40px] md:h-[80px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
-             <path d="M1200 120L0 16.48V0h1200v120z" className="text-[#d8eedf] fill-current" />
+             <path d="M1200 120L0 16.48V0h1200v120z" className="text-[#e9f0ea] fill-current" />
           </svg>
       </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 relative z-10">
