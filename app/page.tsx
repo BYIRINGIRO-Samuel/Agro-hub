@@ -201,7 +201,7 @@ export default function Home() {
       </main>
 
       {/* Interactive Features / Services Section (Blob Layout) */}
-      <section className="relative w-full py-16 md:py-24 px-6 bg-gradient-to-br from-[#f8fcf9] to-[#edf5f0] overflow-hidden mt-8 md:mt-0">
+      <section className="relative w-full py-16 md:py-24 px-6 bg-[#d8eedf] overflow-hidden mt-8 md:mt-0">
         {/* Wavy top divider from About */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none transform -translate-y-1 z-10">
           <svg className="w-full h-8 md:h-16 text-white fill-current" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -210,7 +210,7 @@ export default function Home() {
         </div>
 
         {/* Decorative Grid Pattern */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #14351a 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
+        <div className="absolute inset-0 pointer-events-none opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #14351a 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
         
         {/* Floating Decorative Orbs */}
         <div className="absolute top-10 right-10 w-96 h-96 bg-brand-green rounded-full filter blur-[100px] opacity-[0.08] animate-blob"></div>
