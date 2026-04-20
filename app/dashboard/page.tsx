@@ -12,7 +12,7 @@ export default function DashboardOverviewPage() {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-        <div className="bg-white p-6 rounded-[2rem] shadow-sm border border-neutral-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="bg-white p-6 rounded-4xl shadow-sm border border-neutral-100 flex flex-col justify-between hover:shadow-md transition-shadow">
           <div className="flex items-start justify-between mb-4">
             <div className="w-12 h-12 bg-green-50 text-brand-green rounded-full flex items-center justify-center">
                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -25,7 +25,7 @@ export default function DashboardOverviewPage() {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-[2rem] shadow-sm border border-neutral-100 flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+        <div className="bg-white p-6 rounded-4xl shadow-sm border border-neutral-100 flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full blur-[20px] -mr-10 -mt-10 pointer-events-none"></div>
           <div className="flex items-start justify-between mb-4 relative z-10">
             <div className="w-12 h-12 bg-orange-50 text-brand-orange rounded-full flex items-center justify-center">
@@ -39,9 +39,9 @@ export default function DashboardOverviewPage() {
           </div>
         </div>
 
-        <div className="bg-brand-green p-6 rounded-[2rem] shadow-lg flex flex-col justify-between relative overflow-hidden hover:-translate-y-1 transition-transform">
+        <div className="bg-brand-green p-6 rounded-4xl shadow-lg flex flex-col justify-between relative overflow-hidden hover:-translate-y-1 transition-transform">
           <div className="absolute inset-0 bg-white/5 mix-blend-overlay"></div>
-          <div className="absolute bottom-0 right-0 w-40 h-40 bg-brand-green-hover rounded-full blur-[40px] translate-x-10 translate-y-10 pointer-events-none"></div>
+          <div className="absolute bottom-0 right-0 w-40 h-40 bg-brand-green-hover rounded-full blur-2xl translate-x-10 translate-y-10 pointer-events-none"></div>
           <div className="flex items-start justify-between mb-4 relative z-10">
             <div className="w-12 h-12 bg-white/10 backdrop-blur text-white rounded-full flex items-center justify-center">
                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
@@ -57,7 +57,7 @@ export default function DashboardOverviewPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Chart Area */}
-        <div className="lg:col-span-2 bg-white p-8 rounded-[2rem] shadow-sm border border-neutral-100 flex flex-col min-h-[400px]">
+        <div className="lg:col-span-2 bg-white p-8 rounded-4xl shadow-sm border border-neutral-100 flex flex-col min-h-[400px]">
            <div className="flex items-center justify-between mb-8">
              <h2 className="text-xl font-bold text-neutral-900">Crop Health & Yield Projection</h2>
              <select className="bg-neutral-50 px-4 py-2 border border-neutral-200 rounded-lg text-sm font-semibold text-neutral-600 focus:outline-none focus:ring-1 focus:ring-brand-green">
@@ -79,26 +79,26 @@ export default function DashboardOverviewPage() {
         </div>
 
         {/* Side tasks/alerts */}
-        <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-neutral-100 flex flex-col">
+        <div className="bg-white p-8 rounded-4xl shadow-sm border border-neutral-100 flex flex-col">
            <h2 className="text-xl font-bold text-neutral-900 mb-6">Action Alerts</h2>
            
            <div className="flex flex-col gap-4">
              <div className="bg-orange-50 border border-orange-100 p-4 rounded-xl flex gap-4 items-start">
-               <div className="w-2 h-2 rounded-full bg-brand-orange mt-1.5 flex-shrink-0"></div>
+               <div className="w-2 h-2 rounded-full bg-brand-orange mt-1.5 shrink-0"></div>
                <div>
                  <p className="text-sm font-bold text-neutral-900">Reduce Irrigation</p>
                  <p className="text-xs text-neutral-600 mt-1">Soil moisture is at 85% in Sector A. Cut back watering by 20% today.</p>
                </div>
              </div>
              <div className="bg-green-50 border border-green-100 p-4 rounded-xl flex gap-4 items-start">
-               <div className="w-2 h-2 rounded-full bg-brand-green mt-1.5 flex-shrink-0"></div>
+               <div className="w-2 h-2 rounded-full bg-brand-green mt-1.5 shrink-0"></div>
                <div>
                  <p className="text-sm font-bold text-neutral-900">Optimal Sell Price Reached</p>
                  <p className="text-xs text-neutral-600 mt-1">Carrots are trading at RWF 300/kg in the Kigali market. List now.</p>
                </div>
              </div>
              <div className="bg-neutral-50 border border-neutral-100 p-4 rounded-xl flex gap-4 items-start">
-               <div className="w-2 h-2 rounded-full bg-neutral-400 mt-1.5 flex-shrink-0"></div>
+               <div className="w-2 h-2 rounded-full bg-neutral-400 mt-1.5 shrink-0"></div>
                <div>
                  <p className="text-sm font-bold text-neutral-900">Community Webinar</p>
                  <p className="text-xs text-neutral-600 mt-1">At 4 PM: "Winter prep with Agronomist Paul".</p>
