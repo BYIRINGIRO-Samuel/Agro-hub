@@ -197,6 +197,142 @@ export default function Home() {
 
         </div>
       </main>
+
+      {/* Interactive Features / Services Section */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="text-brand-green font-bold tracking-widest uppercase text-sm">Empowering Your Growth</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-neutral-900 mt-3 mb-6">Discover Our Platform Features</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Card 1 */}
+          <div className="group relative w-full h-[400px] rounded-[2rem] overflow-hidden shadow-lg cursor-pointer transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+            <div className="absolute inset-0 w-full h-full">
+              <Image src="https://images.unsplash.com/photo-1592982537447-6f23f0bf0889?q=80&w=600&auto=format&fit=crop" alt="Community Forum" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-green transition-colors duration-500">
+                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">Community Forums</h3>
+              <p className="text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Connect with local experts, ask questions, and share your agricultural successes.</p>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="group relative w-full h-[400px] rounded-[2rem] overflow-hidden shadow-lg cursor-pointer transform transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(20,53,26,0.3)]">
+            <div className="absolute inset-0 w-full h-full">
+              <Image src="https://images.unsplash.com/photo-1595841696677-6489ff3f8cd1?q=80&w=600&auto=format&fit=crop" alt="Marketplace" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-green/90 via-brand-green/40 to-transparent"></div>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-orange transition-colors duration-500">
+                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">Market Insights</h3>
+              <p className="text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Access real-time commodity data and get the best price for your produce.</p>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="group relative w-full h-[400px] rounded-[2rem] overflow-hidden shadow-lg cursor-pointer transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+            <div className="absolute inset-0 w-full h-full">
+              <Image src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=600&auto=format&fit=crop" alt="Agronomists" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-green transition-colors duration-500">
+                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">Ask an Agronomist</h3>
+              <p className="text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Consult top-rated agricultural scientists on-demand for disease control.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Animated Testimonial / Community Voice Section */}
+      <section className="relative w-full py-32 bg-brand-green overflow-hidden">
+        {/* Animated Background blobs */}
+        <div className="absolute top-0 left-10 w-96 h-96 bg-brand-green-hover rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div className="absolute top-0 right-10 w-96 h-96 bg-brand-orange-hover rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-10 left-1/2 -ml-48 w-96 h-96 bg-brand-light rounded-full mix-blend-soft-light filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+
+        <div className="relative max-w-5xl mx-auto px-6 text-center z-10 flex flex-col items-center">
+          <svg className="w-16 h-16 text-brand-orange mb-8 opacity-90" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+          
+          <h2 className="text-3xl md:text-5xl font-medium text-white leading-tight max-w-4xl tracking-wide mb-12">
+            "Joining Agro-hub has completely transformed my harvest schedule. The knowledge I've gained from the community is invaluable."
+          </h2>
+
+          <div className="flex items-center gap-4 bg-white/10 backdrop-blur-xl px-8 py-4 rounded-full border border-white/20 hover:bg-white/20 transition-all cursor-pointer">
+            <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-brand-orange">
+              <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="User Profile" width={56} height={56} className="object-cover" />
+            </div>
+            <div className="text-left">
+              <p className="text-white font-bold text-lg">Elias Niyongabo</p>
+              <p className="text-white/60 text-sm">Organic Tomato Farmer</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-brand-light pt-20 pb-10 border-t border-brand-green/10">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="col-span-1 md:col-span-1">
+            <div className="flex items-center gap-2 mb-6">
+              <div className="bg-brand-green text-white p-1.5 rounded-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              </div>
+              <span className="text-2xl font-bold tracking-tight text-brand-green">AgroFarm</span>
+            </div>
+            <p className="text-neutral-600 mb-6">Connecting farmers, agronomists, and the market for a sustainable agricultural future.</p>
+          </div>
+          
+          <div>
+            <h4 className="font-bold text-brand-green mb-6 uppercase tracking-wider text-sm">Platform</h4>
+            <ul className="flex flex-col gap-4 text-neutral-600">
+              <li><Link href="#" className="hover:text-brand-orange transition-colors">Community Hub</Link></li>
+              <li><Link href="#" className="hover:text-brand-orange transition-colors">Find Agronomists</Link></li>
+              <li><Link href="#" className="hover:text-brand-orange transition-colors">Market Prices</Link></li>
+              <li><Link href="#" className="hover:text-brand-orange transition-colors">Success Stories</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="font-bold text-brand-green mb-6 uppercase tracking-wider text-sm">Company</h4>
+            <ul className="flex flex-col gap-4 text-neutral-600">
+              <li><Link href="#" className="hover:text-brand-orange transition-colors">About Us</Link></li>
+              <li><Link href="#" className="hover:text-brand-orange transition-colors">Contact</Link></li>
+              <li><Link href="#" className="hover:text-brand-orange transition-colors">Privacy Policy</Link></li>
+              <li><Link href="#" className="hover:text-brand-orange transition-colors">Terms of Service</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="font-bold text-brand-green mb-6 uppercase tracking-wider text-sm">Newsletter</h4>
+            <p className="text-neutral-600 mb-4">Get the latest farming insights delivered to your inbox.</p>
+            <div className="flex border border-brand-green/20 rounded-full overflow-hidden bg-white focus-within:ring-2 focus-within:ring-brand-green transition-shadow">
+              <input type="email" placeholder="Email address" className="w-full px-4 outline-none text-sm text-neutral-800" />
+              <button className="bg-brand-green text-white px-5 py-3 font-semibold hover:bg-brand-green-hover transition-colors">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-brand-green/10 flex flex-col md:flex-row items-center justify-between">
+          <p className="text-neutral-500 text-sm">© {(new Date()).getFullYear()} Agro-hub Platform. All rights reserved.</p>
+          <div className="flex gap-4 mt-4 md:mt-0 text-brand-green">
+            {/* Social Icons Placeholders */}
+            <a href="#" className="hover:text-brand-orange transition-colors"><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+            <a href="#" className="hover:text-brand-orange transition-colors"><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069v-2.163zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
