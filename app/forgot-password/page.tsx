@@ -29,9 +29,9 @@ export default function ForgotPasswordPage() {
               <input type="text" placeholder="Enter your phone or email" className="w-full px-4 py-3 bg-transparent border border-neutral-200 rounded-lg text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all placeholder-neutral-400" required />
             </div>
 
-            <button type="button" className="w-full bg-brand-green hover:bg-brand-green-hover text-white font-bold text-sm tracking-wide py-4 rounded-lg mt-4 transition-colors shadow-lg shadow-brand-green/20">
+            <Link href="/login" className="w-full bg-brand-green flex items-center justify-center hover:bg-brand-green-hover text-white font-bold text-sm tracking-wide py-4 rounded-lg mt-4 transition-colors shadow-lg shadow-brand-green/20">
               Send Reset Link
-            </button>
+            </Link>
           </form>
 
         </div>
