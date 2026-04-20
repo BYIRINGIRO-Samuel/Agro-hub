@@ -110,7 +110,7 @@ export default function Home() {
           {/* Left Image Composition */}
           <div className="relative grid grid-cols-2 gap-3 md:gap-4 lg:pr-6">
             {/* Left large pill */}
-            <div className="relative w-full aspect-[2/3] md:aspect-[3/4] rounded-t-full rounded-b-[2rem] overflow-hidden shadow-xl mt-6">
+            <div className="relative w-full aspect-2/3 md:aspect-[3/4] rounded-t-full rounded-b-[2rem] overflow-hidden shadow-xl mt-6">
               <Image 
                 src="/about_img_1.png" 
                 alt="Agronomist inspecting plants" 
@@ -201,14 +201,22 @@ export default function Home() {
       </main>
 
       {/* Interactive Features / Services Section (Blob Layout) */}
-      <section className="relative w-full py-16 md:py-24 px-6 bg-[#f8fcf9] overflow-hidden mt-8 md:mt-0">
+      <section className="relative w-full py-16 md:py-24 px-6 bg-gradient-to-br from-[#f8fcf9] to-[#edf5f0] overflow-hidden mt-8 md:mt-0">
         {/* Wavy top divider from About */}
-        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none transform -translate-y-1">
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none transform -translate-y-1 z-10">
           <svg className="w-full h-8 md:h-16 text-white fill-current" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" />
           </svg>
         </div>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
+
+        {/* Decorative Grid Pattern */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #14351a 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
+        
+        {/* Floating Decorative Orbs */}
+        <div className="absolute top-10 right-10 w-96 h-96 bg-brand-green rounded-full filter blur-[100px] opacity-[0.08] animate-blob"></div>
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-brand-orange rounded-full filter blur-[100px] opacity-[0.05] animate-blob animation-delay-2000"></div>
+
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center relative z-20">
           
           {/* Left Text Content */}
           <div className="flex flex-col gap-5 lg:pr-6">
@@ -217,7 +225,7 @@ export default function Home() {
               Discover Our Platform
             </div>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 leading-[1.15] mb-2">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 leading-[1.15] mb-2 drop-shadow-sm">
               We provide expert agricultural tools
             </h2>
             
@@ -227,46 +235,50 @@ export default function Home() {
             
             <div className="flex flex-wrap sm:flex-nowrap gap-4 md:gap-6 mb-2">
               <div className="flex flex-col gap-4 flex-1 justify-center">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 bg-white px-4 py-3 rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-shadow">
                   <div className="w-10 h-10 bg-neutral-900 text-white rounded-full flex items-center justify-center shadow-md flex-shrink-0">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
                   </div>
-                  <span className="font-bold text-neutral-900 text-base leading-tight">Community<br/>Forums</span>
+                  <span className="font-bold text-neutral-900 text-sm md:text-base leading-tight">Community<br/>Forums</span>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 bg-white px-4 py-3 rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-shadow">
                   <div className="w-10 h-10 bg-neutral-900 text-white rounded-full flex items-center justify-center shadow-md flex-shrink-0">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   </div>
-                  <span className="font-bold text-neutral-900 text-base leading-tight">Market<br/>Insights</span>
+                  <span className="font-bold text-neutral-900 text-sm md:text-base leading-tight">Market<br/>Insights</span>
                 </div>
               </div>
               
-              <div className="bg-brand-green rounded-2xl w-32 h-28 flex flex-col items-center justify-center text-white shadow-xl flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                <span className="text-3xl font-black">20k+</span>
-                <span className="text-xs font-semibold text-center mt-1">Active<br/>Farmers</span>
+              <div className="bg-brand-green rounded-3xl w-32 h-32 flex flex-col items-center justify-center text-white shadow-xl flex-shrink-0 hover:scale-105 transition-transform duration-300 relative overflow-hidden">
+                <div className="absolute inset-0 bg-white opacity-10 pattern-dots"></div>
+                <span className="text-4xl font-black relative z-10">20k+</span>
+                <span className="text-xs font-semibold text-center mt-1 relative z-10 text-brand-light">Active<br/>Farmers</span>
               </div>
             </div>
 
-            <ul className="flex flex-col gap-2 mt-2 text-neutral-500 font-medium text-sm">
-              <li className="flex items-center gap-3"><svg className="w-5 h-5 text-brand-green flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg> Real-time crop pricing and market trends</li>
-              <li className="flex items-center gap-3"><svg className="w-5 h-5 text-brand-green flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg> Direct agronomist consultations</li>
-              <li className="flex items-center gap-3"><svg className="w-5 h-5 text-brand-green flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg> Secure local buyer connections</li>
+            <ul className="flex flex-col gap-3 mt-3 text-neutral-600 font-medium text-sm">
+              <li className="flex items-center gap-3"><svg className="w-5 h-5 text-brand-green flex-shrink-0 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg> Real-time crop pricing and market trends</li>
+              <li className="flex items-center gap-3"><svg className="w-5 h-5 text-brand-green flex-shrink-0 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg> Direct agronomist consultations</li>
+              <li className="flex items-center gap-3"><svg className="w-5 h-5 text-brand-green flex-shrink-0 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg> Secure local buyer connections</li>
             </ul>
 
-            <button className="bg-neutral-900 hover:bg-brand-green transition-colors text-white px-8 py-3.5 text-sm rounded uppercase font-bold tracking-wider w-fit mt-4 shadow-md">
+            <button className="bg-neutral-900 hover:bg-brand-green transition-all duration-300 transform hover:-translate-y-1 text-white px-8 py-3.5 text-sm rounded-lg uppercase font-bold tracking-wider w-fit mt-4 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.5)] hover:shadow-[0_10px_20px_-10px_rgba(20,53,26,0.6)]">
               Find Out More
             </button>
           </div>
 
           {/* Right Image Composition */}
           <div className="relative w-full aspect-square max-w-[400px] mx-auto lg:ml-auto mt-6 lg:mt-0">
+            {/* Dynamic abstract dashes behind blob */}
+            <div className="absolute top-4 right-4 w-1/2 h-1/2 border-4 border-dashed border-brand-green/20 rounded-full animate-spin-slow"></div>
+
             {/* Main organic blob shape */}
             <div 
-              className="absolute inset-0 border-[6px] border-brand-green overflow-hidden shadow-2xl transition-all duration-1000 ease-in-out hover:scale-[1.02]"
+              className="absolute inset-0 border-[6px] border-white overflow-hidden shadow-[0_20px_50px_-15px_rgba(20,53,26,0.3)] transition-all duration-1000 ease-in-out hover:scale-[1.02] z-10 bg-brand-light"
               style={{ borderRadius: "50% 50% 40% 60% / 60% 40% 60% 40%" }}
             >
               <Image 
-                src="https://images.unsplash.com/photo-1592982537447-6f23f0bf0889?q=80&w=800&auto=format&fit=crop" 
+                src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=800&auto=format&fit=crop" 
                 alt="Farmers harvesting" 
                 fill 
                 className="object-cover" 
@@ -274,13 +286,18 @@ export default function Home() {
             </div>
             
             {/* Secondary overlapping circular image */}
-            <div className="absolute bottom-2 -left-6 md:-left-10 w-36 h-36 md:w-44 md:h-44 rounded-full border-[6px] border-white overflow-hidden shadow-2xl z-10 hover:scale-105 transition-transform duration-500">
+            <div className="absolute bottom-2 -left-6 md:-left-10 w-36 h-36 md:w-44 md:h-44 rounded-full border-[6px] border-white overflow-hidden shadow-2xl z-20 hover:scale-105 transition-transform duration-500">
               <Image 
-                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=400&auto=format&fit=crop" 
+                src="/about_img_2.png" 
                 alt="Agronomist smiling" 
                 fill 
                 className="object-cover" 
               />
+            </div>
+            
+            {/* Small decorative floating icon */}
+            <div className="absolute -top-6 left-10 w-12 h-12 bg-white rounded-full shadow-lg z-20 flex items-center justify-center animate-bounce duration-1000">
+              <svg className="w-6 h-6 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
             </div>
           </div>
 
