@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-brand-light font-sans">
       {/* Hero Section */}
-      <section className="relative w-full h-[80vh] min-h-[600px] flex flex-col justify-between overflow-hidden sm:px-6">
+      <section className="relative w-full h-[95vh] min-h-[750px] flex flex-col justify-between overflow-hidden sm:px-6">
         {/* Background Image & Overlay */}
-        <div className="absolute inset-x-0 top-0 bottom-12 rounded-b-[3rem] md:rounded-b-[4rem] sm:mx-4 overflow-hidden z-0 shadow-lg sm:top-4">
+        <div className="absolute inset-x-0 top-0 bottom-0 rounded-[2rem] md:rounded-[3rem] sm:mx-4 overflow-hidden z-0 shadow-xl sm:top-4">
           <Image 
             src="/hero_bg.png" 
             alt="Farming and Gardening Background" 
@@ -16,6 +16,13 @@ export default function Home() {
             priority
           />
           <div className="absolute inset-0 bg-black/40 z-0"></div>
+          
+          {/* Bottom Cloud SVG Cover Inside Wrapper */}
+          <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none">
+            <svg className="w-[102%] h-16 md:h-24 lg:h-32 text-brand-light transform translate-y-1 -translate-x-[1%]" viewBox="0 0 1440 100" fill="currentColor" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 0 100 V 70 q 30 -50 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 t 60 0 V 100 H 0 Z" />
+            </svg>
+          </div>
         </div>
         
         {/* Navigation - Floating White Pill */}
@@ -82,12 +89,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Bottom Cloud SVG Cover */}
-        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none sm:px-4">
-          <svg className="w-full h-auto text-brand-light transform translate-y-1" viewBox="0 0 1440 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 100V50C60 50 110 30 160 50C210 70 260 30 310 50C360 70 410 30 460 50C510 70 560 30 610 50C660 70 710 30 760 50C810 70 860 30 910 50C960 70 1010 30 1060 50C1110 70 1160 30 1210 50C1260 70 1310 30 1360 50C1410 70 1440 60 1440 60V100H0Z"/>
-          </svg>
-        </div>
       </section>
       
       {/* Rest of the page content would go here later */}
