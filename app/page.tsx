@@ -52,7 +52,7 @@ export default function Home() {
           </div>
 
           {/* CTA Button */}
-          <Link href="#" className="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white bg-brand-green rounded-full hover:bg-brand-green-hover transition-colors shadow-md">
+          <Link href="/signup" className="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white bg-brand-green rounded-full hover:bg-brand-green-hover transition-colors shadow-md">
             Join Platform
           </Link>
 
@@ -81,7 +81,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-              <Link href="#" className="inline-flex items-center justify-center px-8 py-3 text-sm md:text-base font-semibold text-white bg-brand-green border-2 border-brand-green rounded-full hover:bg-brand-green-hover transition-all">
+              <Link href="/signup" className="inline-flex items-center justify-center px-8 py-3 text-sm md:text-base font-semibold text-white bg-brand-green border-2 border-brand-green rounded-full hover:bg-brand-green-hover transition-all">
                 Get Started
               </Link>
               <Link href="#" className="inline-flex items-center justify-center px-8 py-3 text-sm md:text-base font-semibold text-white bg-transparent border-2 border-white rounded-full hover:bg-white/10 transition-all">
@@ -201,7 +201,7 @@ export default function Home() {
       </main>
 
       {/* Interactive Features / Services Section (Blob Layout) */}
-      <section className="relative w-full py-10 md:py-16 px-6 bg-[#e9f0ea] overflow-hidden mt-8 md:mt-0">
+      <section className="relative w-full py-6 md:py-10 px-6 bg-[#e9f0ea] overflow-hidden mt-8 md:mt-0">
         {/* Wavy top divider from About */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none transform -translate-y-1 z-10">
           <svg className="w-full h-8 md:h-16 text-white fill-current" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -256,7 +256,7 @@ export default function Home() {
               </div>
             </div>
 
-            <ul className="flex flex-col gap-4 mt-4 text-neutral-600 font-medium text-sm">
+            <ul className="flex flex-col gap-1.5 mt-2 text-neutral-600 font-medium text-xs md:text-sm">
               <li className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-brand-green shrink-0 mt-0.5 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>
                 <span><strong className="text-neutral-900">Built-in Marketplace:</strong> Turn your harvest into an economy. Buy/sell seeds, connect to buyers, and use group buying to reduce costs.</span>
@@ -271,9 +271,9 @@ export default function Home() {
               </li>
             </ul>
 
-            <button className="bg-neutral-900 hover:bg-brand-green transition-all duration-300 transform hover:-translate-y-1 text-white px-8 py-3.5 text-sm rounded-lg uppercase font-bold tracking-wider w-fit mt-4 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.5)] hover:shadow-[0_10px_20px_-10px_rgba(20,53,26,0.6)]">
+            <Link href="/signup" className="inline-block bg-neutral-900 hover:bg-brand-green transition-all duration-300 transform hover:-translate-y-1 text-white px-8 py-3.5 text-sm rounded-lg uppercase font-bold tracking-wider w-fit mt-3 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.5)] hover:shadow-[0_10px_20px_-10px_rgba(20,53,26,0.6)]">
               Find Out More
-            </button>
+            </Link>
           </div>
 
           {/* Right Image Composition */}
@@ -337,7 +337,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Review 1 */}
-            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-[2rem] border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
+            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-4xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
               <div className="flex gap-1 mb-6">
                 {[1,2,3,4,5].map(star => <svg key={star} className="w-5 h-5 text-brand-orange fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
               </div>
@@ -349,7 +349,7 @@ export default function Home() {
             </div>
 
             {/* Review 2 */}
-            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-[2rem] border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
+            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-4xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
               <div className="flex gap-1 mb-6">
                 {[1,2,3,4,5].map(star => <svg key={star} className="w-5 h-5 text-brand-orange fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
               </div>
@@ -361,7 +361,7 @@ export default function Home() {
             </div>
 
             {/* Review 3 */}
-            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-[2rem] border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
+            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-4xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-2 flex flex-col">
               <div className="flex gap-1 mb-6">
                 {[1,2,3,4,5].map(star => <svg key={star} className="w-5 h-5 text-brand-orange fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>)}
               </div>
