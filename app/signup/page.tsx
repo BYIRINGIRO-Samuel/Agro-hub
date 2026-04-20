@@ -51,9 +51,9 @@ export default function SignupPage() {
               </label>
             </div>
 
-            <button type="button" className="w-full bg-brand-green hover:bg-brand-green-hover text-white font-bold text-sm tracking-wide py-4 rounded-lg mt-4 transition-colors shadow-lg shadow-brand-green/20">
+            <Link href="/dashboard" className="w-full bg-brand-green flex items-center justify-center hover:bg-brand-green-hover text-white font-bold text-sm tracking-wide py-4 rounded-lg mt-4 transition-colors shadow-lg shadow-brand-green/20">
               Create Account
-            </button>
+            </Link>
           </form>
 
           <p className="text-center text-sm text-neutral-500 mt-8">
