@@ -201,7 +201,7 @@ export default function Home() {
       </main>
 
       {/* Interactive Features / Services Section (Blob Layout) */}
-      <section className="relative w-full py-16 md:py-24 px-6 bg-[#e9f0ea] overflow-hidden mt-8 md:mt-0">
+      <section className="relative w-full py-10 md:py-16 px-6 bg-[#e9f0ea] overflow-hidden mt-8 md:mt-0">
         {/* Wavy top divider from About */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none transform -translate-y-1 z-10">
           <svg className="w-full h-8 md:h-16 text-white fill-current" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -258,15 +258,15 @@ export default function Home() {
 
             <ul className="flex flex-col gap-4 mt-4 text-neutral-600 font-medium text-sm">
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-brand-green flex-shrink-0 mt-0.5 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>
+                <svg className="w-5 h-5 text-brand-green shrink-0 mt-0.5 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>
                 <span><strong className="text-neutral-900">Built-in Marketplace:</strong> Turn your harvest into an economy. Buy/sell seeds, connect to buyers, and use group buying to reduce costs.</span>
               </li>
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-brand-green flex-shrink-0 mt-0.5 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>
+                <svg className="w-5 h-5 text-brand-green shrink-0 mt-0.5 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>
                 <span><strong className="text-neutral-900">Farm Management Dashboard:</strong> Track crops, predict yield output, and get profit/loss insights or alerts for optimal watering and harvesting.</span>
               </li>
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-brand-green flex-shrink-0 mt-0.5 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>
+                <svg className="w-5 h-5 text-brand-green shrink-0 mt-0.5 drop-shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>
                 <span><strong className="text-neutral-900">Expert Q&A Clinics:</strong> Direct agronomist consultations and real-time market pricing trends to keep you ahead.</span>
               </li>
             </ul>
