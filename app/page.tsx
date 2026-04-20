@@ -5,78 +5,97 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-brand-light font-sans">
       {/* Hero Section */}
-      <section className="bg-brand-green text-white rounded-b-[3rem] md:rounded-b-[6rem] relative overflow-hidden px-6 py-6 md:px-12 md:py-8 layout-content">
+      <section className="relative w-full h-[80vh] min-h-[600px] flex flex-col justify-between overflow-hidden sm:px-6">
+        {/* Background Image & Overlay */}
+        <div className="absolute inset-x-0 top-0 bottom-12 rounded-b-[3rem] md:rounded-b-[4rem] sm:mx-4 overflow-hidden z-0 shadow-lg sm:top-4">
+          <Image 
+            src="/hero_bg.png" 
+            alt="Farming and Gardening Background" 
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40 z-0"></div>
+        </div>
         
-        {/* Navigation */}
-        <nav className="flex items-center justify-between mb-16 md:mb-24 relative z-10 max-w-7xl mx-auto">
+        {/* Navigation - Floating White Pill */}
+        <nav className="relative z-20 mx-auto w-full max-w-6xl mt-8 px-4 sm:px-6 md:px-8 py-3.5 bg-white rounded-full flex items-center justify-between shadow-2xl">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="bg-white text-brand-green p-1.5 rounded-sm">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
-                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-              </svg>
-            </div>
-            <span className="text-xl md:text-2xl font-semibold tracking-tight">AgroFarm</span>
+            <svg className="text-brand-green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+            <span className="text-xl font-bold tracking-tight text-neutral-900">AgroFarm</span>
           </div>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <Link href="#" className="hover:text-brand-orange transition-colors">Home</Link>
-            <Link href="#" className="hover:text-brand-orange transition-colors">Community</Link>
-            <Link href="#" className="hover:text-brand-orange transition-colors">Insights</Link>
-            <Link href="#" className="hover:text-brand-orange transition-colors">Q&A</Link>
-            <Link href="#" className="hover:text-brand-orange transition-colors">Agronomists</Link>
-            <Link href="#" className="hover:text-brand-orange transition-colors">About Us</Link>
+          <div className="hidden md:flex items-center gap-7 text-sm font-semibold text-neutral-700">
+            <Link href="#" className="hover:text-brand-green transition-colors">Home</Link>
+            <div className="w-1 h-1 bg-neutral-300 rounded-full"></div>
+            <Link href="#" className="hover:text-brand-green transition-colors">Community</Link>
+            <div className="w-1 h-1 bg-neutral-300 rounded-full"></div>
+            <Link href="#" className="hover:text-brand-green transition-colors">Insights</Link>
+            <div className="w-1 h-1 bg-neutral-300 rounded-full"></div>
+            <Link href="#" className="hover:text-brand-green transition-colors">Q&A</Link>
+            <div className="w-1 h-1 bg-neutral-300 rounded-full"></div>
+            <Link href="#" className="hover:text-brand-green transition-colors">Agronomists</Link>
           </div>
 
           {/* CTA Button */}
-          <Link href="#" className="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-brand-orange rounded-full hover:bg-brand-orange-hover transition-colors shadow-sm">
+          <Link href="#" className="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white bg-brand-green rounded-full hover:bg-brand-green-hover transition-colors shadow-md">
             Join Platform
           </Link>
 
-          {/* Mobile Menu Toggle (Placeholder) */}
-          <button className="md:hidden p-2 text-white">
+          {/* Mobile Menu Toggle */}
+          <button className="md:hidden p-2 text-neutral-900">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
           </button>
         </nav>
 
-        {/* Hero Content */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center pb-12 md:pb-24 relative z-10">
-          
-          {/* Left Text */}
-          <div className="flex flex-col gap-6 md:pr-12">
-            <h1 className="text-4xl md:text-6xl font-bold leading-[1.15] tracking-tight">
-              Connect, Share, <br className="hidden md:block" /> & Grow Together
+        {/* Hero Content Overlay */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center flex-1 px-4 mt-8 pb-20">
+          <div className="flex flex-col items-center gap-5 max-w-3xl">
+            <div className="flex flex-col items-center gap-2">
+              <svg className="text-white" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              </svg>
+              <span className="text-white font-medium tracking-wide">Community-Driven Platform</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-white mb-2">
+              Connect, Share, <br /> & Grow Together
             </h1>
-            <p className="text-brand-light/80 text-base md:text-lg max-w-lg leading-relaxed">
+            
+            <p className="text-white/90 text-sm md:text-base max-w-xl leading-relaxed mb-4">
               A community-driven platform connecting farmers and agronomists. Share knowledge, solve challenges, and collaborate in real time for sustainable productivity.
             </p>
-            <div className="pt-2">
-              <Link href="#" className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white bg-brand-orange rounded-full hover:bg-brand-orange-hover transition-all shadow-md hover:shadow-lg">
+
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+              <Link href="#" className="inline-flex items-center justify-center px-8 py-3 text-sm md:text-base font-semibold text-white bg-brand-green border-2 border-brand-green rounded-full hover:bg-brand-green-hover transition-all">
                 Get Started
+              </Link>
+              <Link href="#" className="inline-flex items-center justify-center px-8 py-3 text-sm md:text-base font-semibold text-white bg-transparent border-2 border-white rounded-full hover:bg-white/10 transition-all">
+                Learn More
               </Link>
             </div>
           </div>
-
-          {/* Right Image */}
-          <div className="relative w-full aspect-4/3 md:aspect-5/4">
-            <div className="absolute inset-x-0 bottom-0 top-12 md:top-8 bg-brand-green-hover rounded-t-[3rem] md:rounded-t-[4rem] rounded-b-xl z-0" />
-            <Image 
-              src="/hero.png" 
-              alt="Farmer smiling in a field" 
-              fill
-              className="object-cover object-center rounded-t-[3rem] md:rounded-t-[4rem] rounded-b-xl z-10 shadow-xl"
-              priority
-            />
-          </div>
         </div>
 
+        {/* Bottom Cloud SVG Cover */}
+        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none sm:px-4">
+          <svg className="w-full h-auto text-brand-light transform translate-y-1" viewBox="0 0 1440 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 100V50C60 50 110 30 160 50C210 70 260 30 310 50C360 70 410 30 460 50C510 70 560 30 610 50C660 70 710 30 760 50C810 70 860 30 910 50C960 70 1010 30 1060 50C1110 70 1160 30 1210 50C1260 70 1310 30 1360 50C1410 70 1440 60 1440 60V100H0Z"/>
+          </svg>
+        </div>
       </section>
       
       {/* Rest of the page content would go here later */}
-      <main className="flex-1 py-16">
-        {/* Placeholder to show scrolling / rest of page */}
+      <main className="flex-1 pb-16 pt-8">
+        {/* About section preview (based on design) */}
+        <div className="max-w-5xl mx-auto px-6 py-12">
+           {/* Section to implement next */}
+        </div>
       </main>
     </div>
   );
