@@ -94,7 +94,7 @@ export default function Home() {
       </section>
       
       {/* About Section */}
-      <main className="flex-1 pb-16 pt-16 md:pt-24 md:pb-24 overflow-hidden relative">
+      <main className="flex-1 pb-10 pt-10 md:pt-16 md:pb-16 overflow-hidden relative">
         {/* Subtle background wavy line graphics */}
         <div className="absolute inset-0 pointer-events-none z-0 opacity-20">
            <svg className="w-full h-full text-brand-green" viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -105,12 +105,12 @@ export default function Home() {
            </svg>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center relative z-10">
           
           {/* Left Image Composition */}
-          <div className="relative grid grid-cols-2 gap-4 md:gap-6 lg:pr-8">
+          <div className="relative grid grid-cols-2 gap-3 md:gap-4 lg:pr-6">
             {/* Left large pill */}
-            <div className="relative w-full aspect-[2/3] md:aspect-[1/2] rounded-t-full rounded-b-[2rem] md:rounded-b-[3rem] overflow-hidden shadow-xl mt-8">
+            <div className="relative w-full aspect-[2/3] md:aspect-[3/4] rounded-t-full rounded-b-[2rem] overflow-hidden shadow-xl mt-6">
               <Image 
                 src="/about_img_1.png" 
                 alt="Agronomist inspecting plants" 
@@ -120,8 +120,8 @@ export default function Home() {
             </div>
             
             {/* Right stacked images */}
-            <div className="flex flex-col gap-4 md:gap-6">
-              <div className="relative w-full aspect-[3/4] md:aspect-square rounded-t-full rounded-b-3xl overflow-hidden shadow-md">
+            <div className="flex flex-col gap-3 md:gap-4">
+              <div className="relative w-full aspect-[4/5] rounded-t-full rounded-b-2xl overflow-hidden shadow-md">
                 <Image 
                   src="/about_img_3.png" 
                   alt="Farmer in the field" 
@@ -129,7 +129,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative w-full aspect-[4/5] rounded-b-full rounded-t-3xl overflow-hidden shadow-lg border-4 border-white">
+              <div className="relative w-full aspect-square rounded-b-full rounded-t-2xl overflow-hidden shadow-lg border-[3px] border-white">
                 <Image 
                   src="/about_img_2.png" 
                   alt="Smiling farmer holding plant" 
@@ -140,30 +140,30 @@ export default function Home() {
             </div>
 
             {/* Circular Badge - Positioned slightly outside */}
-            <div className="absolute -bottom-8 -left-4 md:left-auto md:-bottom-2 md:right-[30%] w-24 h-24 md:w-32 md:h-32 bg-white rounded-full p-2 shadow-2xl flex items-center justify-center animate-spin-slow">
+            <div className="absolute -bottom-6 -left-2 md:left-auto md:-bottom-2 md:right-[30%] w-20 h-20 md:w-28 md:h-28 bg-white rounded-full p-1.5 shadow-xl flex items-center justify-center animate-spin-slow z-20">
               <div className="w-full h-full rounded-full border border-dashed border-brand-green flex flex-col items-center justify-center text-brand-green">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-1-7h2v5h-2z"/>
                 </svg>
-                <span className="text-[10px] md:text-xs font-bold leading-tight uppercase mt-1 text-center">About<br/>Us</span>
+                <span className="text-[8px] md:text-[10px] font-bold leading-tight uppercase mt-0.5 text-center">About<br/>Us</span>
               </div>
             </div>
           </div>
 
           {/* Right Text Content */}
-          <div className="flex flex-col gap-6 md:pl-4">
-            <div className="flex items-center gap-2 text-brand-green font-semibold text-sm uppercase tracking-wider">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <div className="flex flex-col gap-4 md:pl-2">
+            <div className="flex items-center gap-2 text-brand-green font-bold text-xs uppercase tracking-wider">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
               </svg>
               About Agro-hub
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-brand-foreground text-neutral-900">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] text-neutral-900">
               We'll Help You Build <br/> A Sustainable Future
             </h2>
             
-            <p className="text-neutral-600 text-base md:text-lg leading-relaxed max-w-xl">
+            <p className="text-neutral-600 text-sm md:text-base leading-relaxed max-w-xl">
               Backed by our community-driven expertise, we provide tools and knowledge to optimize your farming yield. Let us elevate your agricultural output with confidence, modern insights, and robust community support.
             </p>
 
@@ -201,59 +201,59 @@ export default function Home() {
       </main>
 
       {/* Interactive Features / Services Section (Blob Layout) */}
-      <section className="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="py-12 md:py-16 px-6 max-w-7xl mx-auto overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
           
           {/* Left Text Content */}
-          <div className="flex flex-col gap-6 lg:pr-8">
-            <div className="flex items-center gap-2 text-brand-green font-bold text-sm tracking-widest uppercase">
+          <div className="flex flex-col gap-5 lg:pr-6">
+            <div className="flex items-center gap-2 text-brand-green font-bold text-xs tracking-widest uppercase">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7"/></svg>
               Discover Our Platform
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 leading-[1.1] mb-2">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 leading-[1.15] mb-2">
               We provide expert agricultural tools
             </h2>
             
-            <p className="text-neutral-600 text-lg leading-relaxed mb-4">
+            <p className="text-neutral-600 text-sm md:text-base leading-relaxed mb-2">
               Connect with verified buyers, ask agronomists directly, and optimize your overall farming strategies using our comprehensive all-in-one suite designed specifically for sustainable growth.
             </p>
             
-            <div className="flex flex-wrap sm:flex-nowrap gap-6 mb-2">
-              <div className="flex flex-col gap-5 flex-1 justify-center">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-neutral-900 text-white rounded-full flex items-center justify-center shadow-md flex-shrink-0">
-                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
+            <div className="flex flex-wrap sm:flex-nowrap gap-4 md:gap-6 mb-2">
+              <div className="flex flex-col gap-4 flex-1 justify-center">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-neutral-900 text-white rounded-full flex items-center justify-center shadow-md flex-shrink-0">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
                   </div>
-                  <span className="font-bold text-neutral-900 text-lg leading-tight">Community<br/>Forums</span>
+                  <span className="font-bold text-neutral-900 text-base leading-tight">Community<br/>Forums</span>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-neutral-900 text-white rounded-full flex items-center justify-center shadow-md flex-shrink-0">
-                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-neutral-900 text-white rounded-full flex items-center justify-center shadow-md flex-shrink-0">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   </div>
-                  <span className="font-bold text-neutral-900 text-lg leading-tight">Market<br/>Insights</span>
+                  <span className="font-bold text-neutral-900 text-base leading-tight">Market<br/>Insights</span>
                 </div>
               </div>
               
-              <div className="bg-brand-green rounded-[1.5rem] w-40 h-32 flex flex-col items-center justify-center text-white shadow-xl flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                <span className="text-4xl font-black">20k+</span>
-                <span className="text-sm font-semibold text-center mt-1">Active<br/>Farmers</span>
+              <div className="bg-brand-green rounded-2xl w-32 h-28 flex flex-col items-center justify-center text-white shadow-xl flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                <span className="text-3xl font-black">20k+</span>
+                <span className="text-xs font-semibold text-center mt-1">Active<br/>Farmers</span>
               </div>
             </div>
 
-            <ul className="flex flex-col gap-3 mt-4 text-neutral-500 font-medium">
+            <ul className="flex flex-col gap-2 mt-2 text-neutral-500 font-medium text-sm">
               <li className="flex items-center gap-3"><svg className="w-5 h-5 text-brand-green flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg> Real-time crop pricing and market trends</li>
               <li className="flex items-center gap-3"><svg className="w-5 h-5 text-brand-green flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg> Direct agronomist consultations</li>
               <li className="flex items-center gap-3"><svg className="w-5 h-5 text-brand-green flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg> Secure local buyer connections</li>
             </ul>
 
-            <button className="bg-neutral-900 hover:bg-brand-green transition-colors text-white px-10 py-4 text-sm rounded uppercase font-bold tracking-wider w-fit mt-6 shadow-md">
+            <button className="bg-neutral-900 hover:bg-brand-green transition-colors text-white px-8 py-3.5 text-sm rounded uppercase font-bold tracking-wider w-fit mt-4 shadow-md">
               Find Out More
             </button>
           </div>
 
           {/* Right Image Composition */}
-          <div className="relative w-full aspect-square max-w-[500px] mx-auto lg:ml-auto mt-10 lg:mt-0">
+          <div className="relative w-full aspect-square max-w-[400px] mx-auto lg:ml-auto mt-6 lg:mt-0">
             {/* Main organic blob shape */}
             <div 
               className="absolute inset-0 border-[6px] border-brand-green overflow-hidden shadow-2xl transition-all duration-1000 ease-in-out hover:scale-[1.02]"
@@ -268,7 +268,7 @@ export default function Home() {
             </div>
             
             {/* Secondary overlapping circular image */}
-            <div className="absolute bottom-4 -left-8 md:-left-16 w-48 h-48 md:w-56 md:h-56 rounded-full border-[8px] border-white overflow-hidden shadow-2xl z-10 hover:scale-105 transition-transform duration-500">
+            <div className="absolute bottom-2 -left-6 md:-left-10 w-36 h-36 md:w-44 md:h-44 rounded-full border-[6px] border-white overflow-hidden shadow-2xl z-10 hover:scale-105 transition-transform duration-500">
               <Image 
                 src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=400&auto=format&fit=crop" 
                 alt="Agronomist smiling" 
@@ -285,16 +285,16 @@ export default function Home() {
       <QASection />
 
       {/* Animated Testimonial / Community Voice Section */}
-      <section className="relative w-full py-32 bg-brand-green overflow-hidden">
+      <section className="relative w-full py-20 bg-brand-green overflow-hidden">
         {/* Animated Background blobs */}
-        <div className="absolute top-0 left-10 w-96 h-96 bg-brand-green-hover rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-        <div className="absolute top-0 right-10 w-96 h-96 bg-brand-orange-hover rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-10 left-1/2 -ml-48 w-96 h-96 bg-brand-light rounded-full mix-blend-soft-light filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-0 left-10 w-64 h-64 bg-brand-green-hover rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div className="absolute top-0 right-10 w-64 h-64 bg-brand-orange-hover rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-10 left-1/2 -ml-32 w-64 h-64 bg-brand-light rounded-full mix-blend-soft-light filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
 
-        <div className="relative max-w-5xl mx-auto px-6 text-center z-10 flex flex-col items-center">
-          <svg className="w-16 h-16 text-brand-orange mb-8 opacity-90" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+        <div className="relative max-w-4xl mx-auto px-6 text-center z-10 flex flex-col items-center">
+          <svg className="w-12 h-12 text-brand-orange mb-6 opacity-90" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
           
-          <h2 className="text-3xl md:text-5xl font-medium text-white leading-tight max-w-4xl tracking-wide mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white leading-snug tracking-wide mb-8">
             "Joining Agro-hub has completely transformed my harvest schedule. The knowledge I've gained from the community is invaluable."
           </h2>
 
