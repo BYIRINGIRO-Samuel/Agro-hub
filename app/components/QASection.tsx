@@ -25,8 +25,14 @@ export default function QASection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-16 px-6 bg-brand-light relative overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+    <section className="pt-24 md:pt-28 pb-16 px-6 bg-brand-light relative overflow-hidden">
+      {/* Angled SVG Top Divider pointing into the previous section */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none z-0 transform -translate-y-1">
+          <svg className="relative block w-full h-[40px] md:h-[80px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
+             <path d="M1200 120L0 16.48V0h1200v120z" className="text-[#f8fcf9] fill-current" />
+          </svg>
+      </div>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 relative z-10">
         
         {/* Left Side: Sticky Intro & Search */}
         <div className="lg:col-span-5 relative">
