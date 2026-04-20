@@ -49,14 +49,14 @@ export default function LoginPage() {
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center justify-between">
                 <label className="text-xs font-bold text-neutral-800 uppercase tracking-wide">Password</label>
-                <Link href="#" className="text-xs font-bold text-brand-green hover:underline">Forgot?</Link>
+                <Link href="/forgot-password" className="text-xs font-bold text-brand-green hover:underline">Forgot?</Link>
               </div>
               <input type="password" placeholder="Enter your password" className="w-full px-4 py-3 bg-transparent border border-neutral-200 rounded-lg text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all placeholder-neutral-400" />
             </div>
 
-            <button type="button" className="w-full bg-brand-green hover:bg-brand-green-hover text-white font-bold text-sm tracking-wide py-4 rounded-lg mt-6 transition-colors shadow-lg shadow-brand-green/20">
+            <Link href="/dashboard" className="w-full bg-brand-green hover:bg-brand-green-hover text-white flex items-center justify-center font-bold text-sm tracking-wide py-4 rounded-lg mt-6 transition-colors shadow-lg shadow-brand-green/20">
               Log in
-            </button>
+            </Link>
           </form>
 
           <p className="text-center text-sm text-neutral-500 mt-12">
