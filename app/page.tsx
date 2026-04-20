@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import QASection from "./components/QASection";
+import AiAssistant from "./components/AiAssistant";
 
 export default function Home() {
   return (
@@ -253,6 +255,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Worldclass Q&A Section */}
+      <QASection />
+
       {/* Animated Testimonial / Community Voice Section */}
       <section className="relative w-full py-32 bg-brand-green overflow-hidden">
         {/* Animated Background blobs */}
@@ -333,6 +338,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Floating AI Assistant */}
+      <AiAssistant />
     </div>
   );
 }
