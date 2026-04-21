@@ -205,7 +205,7 @@ export default function AgronomistsPage() {
         {filtered.map((agro) => (
           <div key={agro.name} className="bg-white rounded-2xl border border-neutral-100 shadow-sm hover:shadow-lg hover:border-brand-green/20 transition-all overflow-hidden group">
             {/* Card top */}
-            <div className="bg-gradient-to-br from-[#e9f0ea] to-[#d1e8d6] p-5 relative">
+            <div className="bg-linear-to-br from-[#e9f0ea] to-[#d1e8d6] p-5 relative">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-14 h-14 rounded-2xl bg-brand-green text-white flex items-center justify-center text-lg font-extrabold shadow-lg">

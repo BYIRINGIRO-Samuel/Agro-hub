@@ -73,7 +73,7 @@ export default function QASection() {
                   <h3 className={`text-lg md:text-xl font-bold transition-colors duration-300 ${isOpen ? "text-brand-green" : "text-neutral-800 group-hover:text-neutral-900"}`}>
                     {faq.question}
                   </h3>
-                  <div className={`flex-shrink-0 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full transition-all duration-500 ${isOpen ? "bg-brand-green text-white rotate-45" : "bg-neutral-100 text-neutral-500 group-hover:bg-brand-green/10 group-hover:text-brand-green"}`}>
+                  <div className={`shrink-0 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full transition-all duration-500 ${isOpen ? "bg-brand-green text-white rotate-45" : "bg-neutral-100 text-neutral-500 group-hover:bg-brand-green/10 group-hover:text-brand-green"}`}>
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4" /></svg>
                   </div>
                 </div>
