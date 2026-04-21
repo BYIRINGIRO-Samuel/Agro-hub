@@ -19,7 +19,7 @@ export default function StatCard({
 
   return (
     <div
-      className={`rounded-2xl border p-6 flex items-center gap-0 min-h-[110px] transition-all hover:-translate-y-1 hover:shadow-lg ${
+      className={`rounded-2xl border p-7 flex items-center gap-0 min-h-[140px] transition-all hover:-translate-y-1 hover:shadow-lg ${
         isFilled
           ? "bg-brand-green border-brand-green text-white shadow-lg shadow-brand-green/30"
           : "bg-white border-neutral-200 text-neutral-900"
