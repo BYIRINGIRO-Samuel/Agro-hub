@@ -65,6 +65,8 @@ export default function AgroAIPage() {
         text: "Based on local data, mulching and adjusting your irrigation schedule to early morning will help substantially." 
       }]);
     }, 1000);
+  };
+
   const handleAskAboutScan = () => {
     setActiveTab("chat");
     setChatMessages([
