@@ -1,13 +1,68 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import QASection from "./components/QASection";
-import AiAssistant from "./components/AiAssistant";
 
 export default function Home() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="flex flex-col min-h-screen bg-brand-light font-sans">
+    <div className="flex flex-col min-h-screen bg-brand-light font-sans relative">
+      {/* Navigation - Fixed Glassmorphism Navbar with dynamic visibility */}
+      <div className="fixed top-0 inset-x-0 z-[100] px-4 py-4 pointer-events-none">
+        <nav className={`mx-auto w-full max-w-6xl px-6 py-3 transition-all duration-300 rounded-full flex items-center justify-between pointer-events-auto border ${
+          scrolled 
+            ? "bg-white/90 backdrop-blur-xl shadow-2xl border-brand-green/20" 
+            : "bg-white/20 backdrop-blur-md shadow-lg border-white/30"
+        }`}>
+          {/* Logo */}
+          <Link href="#home" className="flex items-center gap-2 group">
+            <svg className={`transition-colors duration-300 ${scrolled ? "text-brand-green" : "text-white"}`} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+            <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${scrolled ? "text-neutral-900" : "text-white"}`}>AgroHub</span>
+          </Link>
+
+          {/* Desktop Links */}
+          <div className={`hidden md:flex items-center gap-7 text-sm font-semibold transition-colors duration-300 ${scrolled ? "text-neutral-700" : "text-white/90"}`}>
+            <Link href="#home" className="hover:text-brand-green transition-colors">Home</Link>
+            <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
+            <Link href="#about" className="hover:text-brand-green transition-colors">About</Link>
+            <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
+            <Link href="#insights" className="hover:text-brand-green transition-colors">Insights</Link>
+            <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
+            <Link href="#qa" className="hover:text-brand-green transition-colors">Q&A</Link>
+          </div>
+
+          {/* CTA Button */}
+          <Link href="/signup" className={`hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold rounded-full transition-all shadow-md ${
+            scrolled 
+              ? "text-white bg-brand-green hover:bg-brand-green-hover" 
+              : "text-brand-green bg-white hover:bg-neutral-100"
+          }`}>
+            Join Now
+          </Link>
+
+          {/* Mobile Menu Toggle */}
+          <button className={`md:hidden p-2 transition-colors ${scrolled ? "text-neutral-900" : "text-white"}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </button>
+        </nav>
+      </div>
+
       {/* Hero Section */}
-      <section className="relative w-full h-[95vh] min-h-[750px] flex flex-col justify-between overflow-hidden sm:px-6">
+      <section id="home" className="relative w-full h-[95vh] min-h-[750px] flex flex-col justify-between overflow-hidden sm:px-6 pt-16">
         {/* Background Image & Overlay */}
         <div className="absolute inset-x-0 top-0 bottom-0 rounded-4xl md:rounded-[3rem] sm:mx-4 overflow-hidden z-0 shadow-xl sm:top-4">
           <Image 
@@ -26,41 +81,6 @@ export default function Home() {
             </svg>
           </div>
         </div>
-        
-        {/* Navigation - Floating White Pill */}
-        <nav className="relative z-20 mx-auto w-full max-w-6xl mt-8 px-4 sm:px-6 md:px-8 py-3.5 bg-white rounded-full flex items-center justify-between shadow-2xl">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <svg className="text-brand-green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
-              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-            </svg>
-            <span className="text-xl font-bold tracking-tight text-neutral-900">AgroHub</span>
-          </div>
-
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-7 text-sm font-semibold text-neutral-700">
-            <Link href="#" className="hover:text-brand-green transition-colors">Home</Link>
-            <div className="w-1 h-1 bg-neutral-300 rounded-full"></div>
-            <Link href="#" className="hover:text-brand-green transition-colors">Community</Link>
-            <div className="w-1 h-1 bg-neutral-300 rounded-full"></div>
-            <Link href="#" className="hover:text-brand-green transition-colors">Insights</Link>
-            <div className="w-1 h-1 bg-neutral-300 rounded-full"></div>
-            <Link href="#" className="hover:text-brand-green transition-colors">Q&A</Link>
-            <div className="w-1 h-1 bg-neutral-300 rounded-full"></div>
-            <Link href="#" className="hover:text-brand-green transition-colors">Agronomists</Link>
-          </div>
-
-          {/* CTA Button */}
-          <Link href="/signup" className="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white bg-brand-green rounded-full hover:bg-brand-green-hover transition-colors shadow-md">
-            Join Platform
-          </Link>
-
-          {/* Mobile Menu Toggle */}
-          <button className="md:hidden p-2 text-neutral-900">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-          </button>
-        </nav>
 
         {/* Hero Content Overlay */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center flex-1 px-4 mt-8 pb-20">
@@ -94,7 +114,7 @@ export default function Home() {
       </section>
       
       {/* About Section */}
-      <main className="flex-1 pb-10 pt-10 md:pt-16 md:pb-16 overflow-hidden relative">
+      <main id="about" className="flex-1 pb-10 pt-10 md:pt-16 md:pb-16 overflow-hidden relative">
         {/* Subtle background wavy line graphics */}
         <div className="absolute inset-0 pointer-events-none z-0 opacity-20">
            <svg className="w-full h-full text-brand-green" viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -201,7 +221,7 @@ export default function Home() {
       </main>
 
       {/* Interactive Features / Services Section (Blob Layout) */}
-      <section className="relative w-full py-6 md:py-10 px-6 bg-[#e9f0ea] overflow-hidden mt-8 md:mt-0">
+      <section id="insights" className="relative w-full py-6 md:py-10 px-6 bg-[#e9f0ea] overflow-hidden mt-8 md:mt-0">
         {/* Wavy top divider from About */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none transform -translate-y-1 z-10">
           <svg className="w-full h-8 md:h-16 text-white fill-current" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -299,7 +319,9 @@ export default function Home() {
       </section>
 
       {/* Worldclass Q&A Section */}
-      <QASection />
+      <div id="qa">
+        <QASection />
+      </div>
 
       {/* Animated Testimonial / Community Voice Section */}
       <section className="relative w-full pt-32 pb-24 bg-brand-green overflow-hidden">
@@ -421,8 +443,6 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* Floating AI Assistant */}
-      <AiAssistant />
     </div>
   );
 }
