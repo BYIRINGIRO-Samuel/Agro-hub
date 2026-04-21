@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-brand-light font-sans relative">
       {/* Navigation - Fixed Glassmorphism Navbar with dynamic visibility */}
-      <div className="fixed top-0 inset-x-0 z-[100] px-4 py-4 pointer-events-none">
+      <div className={`fixed inset-x-0 z-[100] px-4 transition-all duration-500 pointer-events-none ${scrolled ? "top-2" : "top-8"}`}>
         <nav className={`mx-auto w-full max-w-6xl px-6 py-3 transition-all duration-300 rounded-full flex items-center justify-between pointer-events-auto border ${
           scrolled 
             ? "bg-white/90 backdrop-blur-xl shadow-2xl border-brand-green/20" 
@@ -35,7 +35,7 @@ export default function Home() {
           </Link>
 
           {/* Desktop Links */}
-          <div className={`hidden md:flex items-center gap-7 text-sm font-semibold transition-colors duration-300 ${scrolled ? "text-neutral-700" : "text-white/90"}`}>
+          <div className={`hidden md:flex items-center gap-6 text-sm font-semibold transition-colors duration-300 ${scrolled ? "text-neutral-700" : "text-white/90"}`}>
             <Link href="#home" className="hover:text-brand-green transition-colors">Home</Link>
             <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
             <Link href="#about" className="hover:text-brand-green transition-colors">About</Link>
@@ -43,6 +43,8 @@ export default function Home() {
             <Link href="#insights" className="hover:text-brand-green transition-colors">Insights</Link>
             <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
             <Link href="#qa" className="hover:text-brand-green transition-colors">Q&A</Link>
+            <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
+            <Link href="#testimonials" className="hover:text-brand-green transition-colors">Reviews</Link>
           </div>
 
           {/* CTA Button */}
@@ -324,7 +326,7 @@ export default function Home() {
       </div>
 
       {/* Animated Testimonial / Community Voice Section */}
-      <section className="relative w-full pt-32 pb-24 bg-brand-green overflow-hidden">
+      <section id="testimonials" className="relative w-full pt-32 pb-24 bg-brand-green overflow-hidden">
         {/* Pointy grass/wave top divider from Q&A */}
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none z-20 transform -translate-y-1">
           <svg className="w-full h-12 md:h-20 text-brand-light fill-current" viewBox="0 0 1200 120" preserveAspectRatio="none">

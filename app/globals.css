@@ -15,6 +15,10 @@
   --color-foreground: #222222;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-brand-light);
   color: var(--color-foreground);
@@ -37,4 +41,19 @@ body {
 
 .animation-delay-4000 {
   animation-delay: 4s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 3s;
 }
