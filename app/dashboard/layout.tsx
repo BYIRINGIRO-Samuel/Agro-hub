@@ -26,7 +26,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
              </svg>
           </div>
-          <span className="text-xl font-bold tracking-tight text-white">AgroFarm</span>
+          <span className="text-xl font-bold tracking-tight text-white">AgroHub</span>
         </div>
 
         <nav className="flex-1 px-4 py-8 space-y-2">
@@ -65,7 +65,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
              <button className="p-2 text-neutral-600 bg-neutral-100 rounded-lg">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
              </button>
-             <span className="text-xl font-bold tracking-tight text-neutral-900">AgroFarm</span>
+             <span className="text-xl font-bold tracking-tight text-neutral-900">AgroHub</span>
           </div>
 
           <div className="hidden md:block">
@@ -76,13 +76,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="relative p-2 text-neutral-500 hover:text-brand-green transition-colors bg-neutral-50 rounded-full">
+            <Link href="/dashboard/settings?tab=notifications" className="relative p-2 text-neutral-500 hover:text-brand-green transition-colors bg-neutral-50 rounded-full">
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
               <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-brand-orange rounded-full"></span>
-            </button>
-            <div className="h-10 w-10 bg-brand-green rounded-full flex items-center justify-center text-white font-bold cursor-pointer border-2 border-white shadow-sm hover:scale-105 transition-transform">
+            </Link>
+            <Link href="/dashboard/settings?tab=profile" className="h-10 w-10 bg-brand-green rounded-full flex items-center justify-center text-white font-bold cursor-pointer border-2 border-white shadow-sm hover:scale-105 transition-transform">
               FT
-            </div>
+            </Link>
           </div>
         </header>
 
