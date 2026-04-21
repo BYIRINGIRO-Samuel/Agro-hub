@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "AgroFarm - Community for Farmers & Agronomists",
+  title: "AgroHub - Community for Farmers & Agronomists",
   description: "A community-driven platform connecting farmers and agronomists to share knowledge, ask questions, and solve agricultural challenges.",
 };
 
