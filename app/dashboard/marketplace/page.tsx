@@ -45,12 +45,12 @@ const marketCards = [
 
 /* ─── Products for sale (inputs) ───────────────── */
 const inputs = [
-  { name: "Premium Maize Seed", type: "Seeds", price: "RWF 4,500/kg", seller: "AgroPlus Ltd", rating: 4.8, yield: "+22%", badge: "🔥 Top Rated", stock: "In Stock" },
-  { name: "NPK Fertilizer 20-10-10", type: "Fertilizer", price: "RWF 12,000/bag", seller: "FarmMart RW", rating: 4.6, yield: "+18%", badge: "✅ Verified", stock: "In Stock" },
-  { name: "Organic Compost Mix", type: "Fertilizer", price: "RWF 3,200/bag", seller: "GreenRoots", rating: 4.9, yield: "+14%", badge: "🌿 Organic", stock: "Limited" },
-  { name: "Drip Irrigation Kit", type: "Tools", price: "RWF 85,000/set", seller: "IrrigaTech", rating: 4.7, yield: "+30%", badge: "💧 Saves Water", stock: "In Stock" },
-  { name: "Crop Pest Control Spray", type: "Pesticide", price: "RWF 6,800/L", seller: "ProtectFarm", rating: 4.4, yield: "+8%", badge: "🛡️ Safe", stock: "In Stock" },
-  { name: "Bean Seed Hybrid B4", type: "Seeds", price: "RWF 3,800/kg", seller: "SeedWorks", rating: 4.5, yield: "+19%", badge: "⭐ Popular", stock: "Pre-order" },
+  { name: "Premium Maize Seed", type: "Seeds", price: "RWF 4,500/kg", seller: "AgroPlus Ltd", rating: 4.8, yield: "+22%", badge: "Top Rated", stock: "In Stock" },
+  { name: "NPK Fertilizer 20-10-10", type: "Fertilizer", price: "RWF 12,000/bag", seller: "FarmMart RW", rating: 4.6, yield: "+18%", badge: "Verified", stock: "In Stock" },
+  { name: "Organic Compost Mix", type: "Fertilizer", price: "RWF 3,200/bag", seller: "GreenRoots", rating: 4.9, yield: "+14%", badge: "Organic", stock: "Limited" },
+  { name: "Drip Irrigation Kit", type: "Tools", price: "RWF 85,000/set", seller: "IrrigaTech", rating: 4.7, yield: "+30%", badge: "Saves Water", stock: "In Stock" },
+  { name: "Crop Pest Control Spray", type: "Pesticide", price: "RWF 6,800/L", seller: "ProtectFarm", rating: 4.4, yield: "+8%", badge: "Safe", stock: "In Stock" },
+  { name: "Bean Seed Hybrid B4", type: "Seeds", price: "RWF 3,800/kg", seller: "SeedWorks", rating: 4.5, yield: "+19%", badge: "Popular", stock: "Pre-order" },
 ];
 
 /* ─── Crop listings (sell) ──────────────────────── */
@@ -66,7 +66,6 @@ const demandStyle: Record<string, string> = {
   Medium: "bg-yellow-100 text-yellow-700",
   Low:    "bg-neutral-100 text-neutral-500",
 };
-const demandIcon: Record<string, string> = { High: "🔥", Medium: "⚖️", Low: "❄️" };
 
 /* ─── Nearby Buyers ─────────────────────────────── */
 const nearbyBuyers = [
@@ -106,7 +105,9 @@ export default function MarketplacePage() {
 
       {/* AI Recommendation Banner */}
       <div className="bg-linear-to-r from-brand-green to-[#1d5227] rounded-2xl p-6 flex flex-col md:flex-row md:items-center gap-4">
-        <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-2xl shrink-0">🤖</div>
+        <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
+          <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+        </div>
         <div className="flex-1">
           <p className="text-white font-extrabold text-sm">AI Recommendation for your farm</p>
           <p className="text-white/70 text-xs mt-1">Based on your yield data: You&apos;re losing 18% efficiency due to suboptimal fertilizer. Switch to <strong className="text-white">NPK 20-10-10</strong> and save ~RWF 45,000/season.</p>
@@ -139,8 +140,8 @@ export default function MarketplacePage() {
 
         {/* Buy / Sell Toggle */}
         <div className="flex gap-1 bg-neutral-100 p-1 rounded-xl w-fit mb-6">
-          <button onClick={() => setTab("buy")} className={`px-6 py-2 text-sm font-bold rounded-lg transition-all ${tab === "buy" ? "bg-white text-brand-green shadow" : "text-neutral-500"}`}>🛒 Buy Inputs</button>
-          <button onClick={() => setTab("sell")} className={`px-6 py-2 text-sm font-bold rounded-lg transition-all ${tab === "sell" ? "bg-white text-brand-green shadow" : "text-neutral-500"}`}>🌾 Sell Crops</button>
+          <button onClick={() => setTab("buy")} className={`px-6 py-2 text-sm font-bold rounded-lg transition-all ${tab === "buy" ? "bg-white text-brand-green shadow" : "text-neutral-500"}`}>Buy Inputs</button>
+          <button onClick={() => setTab("sell")} className={`px-6 py-2 text-sm font-bold rounded-lg transition-all ${tab === "sell" ? "bg-white text-brand-green shadow" : "text-neutral-500"}`}>Sell Crops</button>
         </div>
 
         {tab === "buy" ? (
@@ -160,7 +161,7 @@ export default function MarketplacePage() {
                   <span className="text-xs font-bold text-neutral-600">{item.rating}</span>
                 </div>
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="text-[11px] bg-green-50 text-green-700 font-extrabold px-2 py-1 rounded-lg">📈 Yield {item.yield}</span>
+                  <span className="text-[11px] bg-green-50 text-green-700 font-extrabold px-2 py-1 rounded-lg">Yield {item.yield}</span>
                   <span className={`text-[11px] font-bold px-2 py-1 rounded-lg ${item.stock === "In Stock" ? "bg-green-50 text-green-600" : item.stock === "Limited" ? "bg-yellow-50 text-yellow-600" : "bg-blue-50 text-blue-600"}`}>{item.stock}</span>
                 </div>
                 <div className="flex items-center justify-between">
@@ -190,7 +191,7 @@ export default function MarketplacePage() {
                     <td className="py-3.5 pr-4 text-neutral-500">{l.location}</td>
                     <td className="py-3.5 pr-4">
                       <span className={`text-[11px] font-extrabold px-2.5 py-1.5 rounded-full ${demandStyle[l.demand]}`}>
-                        {demandIcon[l.demand]} {l.demand}
+                        {l.demand}
                       </span>
                     </td>
                     <td className="py-3.5 pr-4 text-neutral-400 text-xs">{l.freshness}</td>
@@ -210,20 +211,27 @@ export default function MarketplacePage() {
         {/* Price Chart */}
         <div className="lg:col-span-3 bg-white p-7 rounded-2xl shadow-sm border border-neutral-100">
           <div className="flex items-center justify-between mb-2">
-            <h2 className="text-base font-bold text-neutral-900">📊 Live Market Prices</h2>
+            <h2 className="flex items-center gap-2 text-base font-bold text-neutral-900">
+              <svg className="w-5 h-5 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+              Live Market Prices
+            </h2>
             <span className="text-[10px] font-extrabold text-green-600 bg-green-100 px-2.5 py-1 rounded-full">● Live</span>
           </div>
-          <p className="text-xs text-neutral-400 mb-4">RWF per kg — Rwanda national average (last 8 months)</p>
+          <p className="text-xs text-neutral-400 mb-4 pl-7">RWF per kg — Rwanda national average (last 8 months)</p>
           <MarketPriceChart />
-          <p className="text-[11px] text-blue-600 bg-blue-50 border border-blue-100 rounded-lg px-3 py-2 mt-3 font-semibold">
-            💡 Maize prices expected to rise ~12% in 2 weeks — consider holding your stock.
-          </p>
+          <div className="flex items-start gap-2 bg-blue-50 border border-blue-100 rounded-lg px-3 py-2 mt-3 text-blue-600">
+            <svg className="w-4 h-4 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <p className="text-[11px] font-semibold">Maize prices expected to rise ~12% in 2 weeks — consider holding your stock.</p>
+          </div>
         </div>
 
         {/* Nearby Buyers + Group Buy */}
         <div className="lg:col-span-2 flex flex-col gap-5">
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-neutral-100 flex-1">
-            <h2 className="text-base font-bold text-neutral-900 mb-4">📍 Nearby Buyers</h2>
+            <h2 className="flex items-center gap-2 text-base font-bold text-neutral-900 mb-4">
+              <svg className="w-5 h-5 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              Nearby Buyers
+            </h2>
             <div className="flex flex-col gap-3">
               {nearbyBuyers.map((b) => (
                 <div key={b.name} className="flex items-start gap-3 p-3.5 bg-neutral-50 rounded-xl border border-neutral-100 hover:border-brand-green/30 transition-colors">
@@ -249,7 +257,9 @@ export default function MarketplacePage() {
           {/* Group Buying */}
           <div className="bg-brand-green p-6 rounded-2xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-white/10 rounded-2xl flex items-center justify-center text-xl">👥</div>
+              <div className="w-10 h-10 bg-white/10 rounded-2xl flex items-center justify-center">
+                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+              </div>
               <div>
                 <h2 className="text-sm font-extrabold text-white">Group Buying</h2>
                 <p className="text-white/50 text-xs">Pool together, save more</p>
