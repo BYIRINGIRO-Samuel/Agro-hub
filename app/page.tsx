@@ -44,38 +44,41 @@ export default function Home() {
         }`}>
           {/* Logo */}
           <Link href="#home" className="flex items-center gap-2 group">
-            <svg className={`transition-colors duration-300 ${scrolled ? "text-brand-green" : "text-white"}`} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg className={`transition-colors duration-300 ${scrolled ? "text-brand-green" : "text-[#4ade80]"}`} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
               <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
             </svg>
-            <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${scrolled ? "text-neutral-900" : "text-white"}`}>AgroHub</span>
+            <span className="text-xl font-black tracking-tighter transition-all duration-300">
+              <span className={scrolled ? "text-brand-green" : "text-[#19a04a]"}>Agro</span>
+              <span className={scrolled ? "text-neutral-900" : "text-white"}>Hub</span>
+            </span>
           </Link>
 
           {/* Desktop Links */}
           <div className={`hidden md:flex items-center gap-6 text-sm font-semibold transition-colors duration-300 ${scrolled ? "text-neutral-700" : "text-white/90"}`}>
             <Link href="#home" onClick={(e) => scrollToSection(e, "home")} className="relative group py-1">
-              <span>Home</span>
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-white"}`}></span>
+              <span className={`transition-colors duration-300 ${scrolled ? "group-hover:text-brand-green" : "group-hover:text-[#4ade80]"}`}>Home</span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-[#4ade80]"}`}></span>
             </Link>
             <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
             <Link href="#about" onClick={(e) => scrollToSection(e, "about")} className="relative group py-1">
-              <span>About</span>
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-white"}`}></span>
+              <span className={`transition-colors duration-300 ${scrolled ? "group-hover:text-brand-green" : "group-hover:text-[#4ade80]"}`}>About</span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-[#4ade80]"}`}></span>
             </Link>
             <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
             <Link href="#insights" onClick={(e) => scrollToSection(e, "insights")} className="relative group py-1">
-              <span>Insights</span>
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-white"}`}></span>
+              <span className={`transition-colors duration-300 ${scrolled ? "group-hover:text-brand-green" : "group-hover:text-[#4ade80]"}`}>Insights</span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-[#4ade80]"}`}></span>
             </Link>
             <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
             <Link href="#qa" onClick={(e) => scrollToSection(e, "qa")} className="relative group py-1">
-              <span>Q&A</span>
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-white"}`}></span>
+              <span className={`transition-colors duration-300 ${scrolled ? "group-hover:text-brand-green" : "group-hover:text-[#4ade80]"}`}>Q&A</span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-[#4ade80]"}`}></span>
             </Link>
             <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
             <Link href="#testimonials" onClick={(e) => scrollToSection(e, "testimonials")} className="relative group py-1">
-              <span>Reviews</span>
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-white"}`}></span>
+              <span className={`transition-colors duration-300 ${scrolled ? "group-hover:text-brand-green" : "group-hover:text-[#4ade80]"}`}>Reviews</span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-[#4ade80]"}`}></span>
             </Link>
           </div>
 
