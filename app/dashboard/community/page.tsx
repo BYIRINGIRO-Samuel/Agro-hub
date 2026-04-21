@@ -1,9 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 
 /* ─── Data ─────────────────────────────────────── */
-const feedTabs = ["Trending 🔥", "Questions ❓", "Tips 🌱", "Stories 🏆", "Problems 🚨"];
+const feedTabs = [
+  { id: "Trending",  label: "Trending",  icon: "🔥" },
+  { id: "Questions", label: "Questions", icon: "❓" },
+  { id: "Tips",      label: "Tips",      icon: "🌱" },
+  { id: "Stories",   label: "Stories",   icon: "🏆" },
+  { id: "Problems",  label: "Problems",  icon: "🚨" },
+];
 
 const posts = [
   {
@@ -68,12 +75,20 @@ const tagStyle: Record<string, string> = {
 };
 
 export default function CommunityPage() {
-  const [activeTab, setActiveTab] = useState("Trending 🔥");
+  const [activeTab, setActiveTab] = useState("Trending");
   const [askOpen, setAskOpen] = useState(false);
 
-  const filtered = activeTab === "Trending 🔥"
+  const tabLabel = (id: string) => {
+    const map: Record<string, string> = {
+      Trending: "Trending 🔥", Questions: "Questions ❓",
+      Tips: "Tips 🌱", Stories: "Stories 🏆", Problems: "Problems 🚨",
+    };
+    return map[id] ?? id;
+  };
+
+  const filtered = activeTab === "Trending"
     ? posts
-    : posts.filter(p => p.tab === activeTab);
+    : posts.filter(p => p.tab === tabLabel(activeTab));
 
   return (
     <div className="space-y-6">
@@ -127,15 +142,23 @@ export default function CommunityPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Feed */}
         <div className="lg:col-span-2 space-y-5">
-          {/* Feed Tabs */}
-          <div className="bg-white p-1.5 rounded-2xl border border-neutral-100 flex gap-1 overflow-x-auto">
+          {/* Threads-style Tab Bar */}
+          <div className="bg-white border-b border-neutral-100 flex overflow-x-auto">
             {feedTabs.map((tab) => (
               <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-4 py-2 text-xs font-extrabold rounded-xl whitespace-nowrap transition-all ${activeTab === tab ? "bg-brand-green text-white shadow" : "text-neutral-500 hover:bg-neutral-100"}`}
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`relative flex items-center gap-1.5 px-5 py-4 text-sm font-bold whitespace-nowrap transition-colors ${
+                  activeTab === tab.id
+                    ? "text-neutral-900"
+                    : "text-neutral-400 hover:text-neutral-600"
+                }`}
               >
-                {tab}
+                <span className="text-base leading-none">{tab.icon}</span>
+                {tab.label}
+                {activeTab === tab.id && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-neutral-900 rounded-full" />
+                )}
               </button>
             ))}
           </div>
@@ -163,7 +186,9 @@ export default function CommunityPage() {
               </div>
 
               {/* Content */}
-              <h3 className="text-base font-extrabold text-neutral-900 mb-2 leading-snug hover:text-brand-green cursor-pointer transition-colors">{post.title}</h3>
+              <Link href={`/dashboard/community/${post.id}`}>
+                <h3 className="text-base font-extrabold text-neutral-900 mb-2 leading-snug hover:text-brand-green cursor-pointer transition-colors">{post.title}</h3>
+              </Link>
               <p className="text-sm text-neutral-500 mb-3 line-clamp-2">{post.body}</p>
 
               {/* Tags */}
@@ -195,7 +220,7 @@ export default function CommunityPage() {
                   </button>
                   <span className="text-xs text-neutral-400 font-medium">👁 {post.views}</span>
                 </div>
-                <button className="text-xs font-extrabold text-brand-green hover:underline">View Thread →</button>
+                <Link href={`/dashboard/community/${post.id}`} className="text-xs font-extrabold text-brand-green hover:underline">View Thread →</Link>
               </div>
             </div>
           ))}
