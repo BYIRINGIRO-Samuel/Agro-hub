@@ -216,6 +216,24 @@ export default function Home() {
         <div className="absolute top-10 right-10 w-96 h-96 bg-brand-green rounded-full filter blur-[100px] opacity-[0.08] animate-blob"></div>
         <div className="absolute bottom-10 left-10 w-96 h-96 bg-brand-orange rounded-full filter blur-[100px] opacity-[0.05] animate-blob animation-delay-2000"></div>
 
+        {/* Decorative Floating Leaves */}
+        <div className="absolute top-[10%] left-[2%] opacity-15 animate-float pointer-events-none hidden md:block">
+          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z" fill="#14351a" fillOpacity="0.2"/>
+            <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z" fill="#14351a" />
+          </svg>
+        </div>
+        <div className="absolute top-[60%] right-[3%] opacity-10 animate-float-delayed pointer-events-none hidden lg:block transform -rotate-45">
+          <svg width="140" height="140" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z" fill="#14351a" />
+          </svg>
+        </div>
+        <div className="absolute -bottom-10 left-[40%] opacity-10 animate-float pointer-events-none hidden lg:block">
+          <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z" fill="#14351a" />
+          </svg>
+        </div>
+
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center relative z-20">
           
           {/* Left Text Content */}
