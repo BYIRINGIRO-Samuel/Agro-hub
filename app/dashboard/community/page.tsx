@@ -174,7 +174,7 @@ export default function CommunityPage() {
               </div>
 
               {/* AI Summary */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-100 rounded-xl p-3.5 mb-4">
+              <div className="bg-linear-to-r from-green-50 to-emerald-50 border border-green-100 rounded-xl p-3.5 mb-4">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-sm">🤖</span>
                   <p className="text-[10px] font-extrabold text-brand-green uppercase tracking-wider">AI Summary</p>
