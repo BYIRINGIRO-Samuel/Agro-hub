@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const navItems = [
   { id: "profile",       label: "Profile",        icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
@@ -12,12 +13,19 @@ const navItems = [
 ];
 
 const notifSettings = [
-  { id: "pest_alert",    label: "Pest & Disease Alerts",        desc: "Get notified when threats are detected near your region", enabled: true },
-  { id: "market_price",  label: "Market Price Updates",          desc: "Daily price changes for your listed crops", enabled: true },
-  { id: "harvest",       label: "Harvest Reminders",             desc: "Reminders when harvest time approaches", enabled: true },
-  { id: "community",     label: "Community Replies",             desc: "When someone replies to your questions or posts", enabled: false },
-  { id: "expert",        label: "Expert Consultation Reminders", desc: "Reminders before your booked sessions", enabled: true },
-  { id: "ai_insight",    label: "AI Weekly Insights",            desc: "Weekly personalised farm performance digest", enabled: false },
+  { id: "pest_alert",    label: "Pest & Disease Alerts",        desc: "Get notified when threats are detected near your region", default: true },
+  { id: "market_price",  label: "Market Price Updates",          desc: "Daily price changes for your listed crops", default: true },
+  { id: "harvest",       label: "Harvest Reminders",             desc: "Reminders when harvest time approaches", default: true },
+  { id: "community",     label: "Community Replies",             desc: "When someone replies to your questions or posts", default: false },
+  { id: "expert",        label: "Expert Consultation Reminders", desc: "Reminders before your booked sessions", default: true },
+  { id: "ai_insight",    label: "AI Weekly Insights",            desc: "Weekly personalised farm performance digest", default: false },
+];
+
+const privacySettings = [
+  { id: "share_yield",   label: "Share yield data for regional insights",   desc: "Help the platform build better AI models for your region", default: true },
+  { id: "personalized",  label: "Allow personalized recommendations",        desc: "We use your farm data to give smarter suggestions", default: true },
+  { id: "public_profile",label: "Show profile in community",                 desc: "Let other farmers find and follow your public posts", default: false },
+  { id: "analytics",     label: "Analytics & Crash Reporting",               desc: "Help improve the app by sharing anonymous usage data", default: true },
 ];
 
 function Toggle({ enabled, onChange }: { enabled: boolean; onChange: () => void }) {
@@ -32,15 +40,35 @@ function Toggle({ enabled, onChange }: { enabled: boolean; onChange: () => void 
 }
 
 export default function SettingsPage() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  // ALL hooks declared unconditionally at the top
   const [active, setActive] = useState("profile");
   const [notifs, setNotifs] = useState(() =>
-    Object.fromEntries(notifSettings.map((n) => [n.id, n.enabled]))
+    Object.fromEntries(notifSettings.map((n) => [n.id, n.default]))
+  );
+  const [privacy, setPrivacy] = useState(() =>
+    Object.fromEntries(privacySettings.map((p) => [p.id, p.default]))
   );
   const [saved, setSaved] = useState(false);
+
+  // Sync URL ?tab= param to active section
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab && navItems.some((n) => n.id === tab)) {
+      setActive(tab);
+    }
+  }, [searchParams]);
 
   const handleSave = () => {
     setSaved(true);
     setTimeout(() => setSaved(false), 2500);
+  };
+
+  const handleNav = (id: string) => {
+    setActive(id);
+    router.push(`/dashboard/settings?tab=${id}`, { scroll: false });
   };
 
   return (
@@ -53,7 +81,7 @@ export default function SettingsPage() {
 
       {/* Save Toast */}
       {saved && (
-        <div className="fixed top-6 right-6 z-50 bg-brand-green text-white text-sm font-bold px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2 animate-pulse">
+        <div className="fixed top-6 right-6 z-50 bg-brand-green text-white text-sm font-bold px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
           Changes saved successfully!
         </div>
@@ -66,11 +94,9 @@ export default function SettingsPage() {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => setActive(item.id)}
+                onClick={() => handleNav(item.id)}
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all whitespace-nowrap ${
-                  active === item.id
-                    ? "bg-brand-green text-white shadow"
-                    : "text-neutral-600 hover:bg-neutral-50"
+                  active === item.id ? "bg-brand-green text-white shadow" : "text-neutral-600 hover:bg-neutral-50"
                 }`}
               >
                 <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -107,26 +133,16 @@ export default function SettingsPage() {
                 ].map((f) => (
                   <div key={f.label}>
                     <label className="block text-xs font-extrabold text-neutral-700 uppercase tracking-wider mb-2">{f.label}</label>
-                    <input
-                      type={f.type}
-                      defaultValue={f.value}
-                      className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm font-medium text-neutral-800 focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green"
-                    />
+                    <input type={f.type} defaultValue={f.value} className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm font-medium text-neutral-800 focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green" />
                   </div>
                 ))}
                 <div className="md:col-span-2">
                   <label className="block text-xs font-extrabold text-neutral-700 uppercase tracking-wider mb-2">Bio</label>
-                  <textarea
-                    rows={3}
-                    defaultValue="Smallholder farmer based in Kigali. Growing maize, beans, and tomatoes across 3 plots."
-                    className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm font-medium text-neutral-800 focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green resize-none"
-                  />
+                  <textarea rows={3} defaultValue="Smallholder farmer based in Kigali. Growing maize, beans, and tomatoes across 3 plots." className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm font-medium text-neutral-800 focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green resize-none" />
                 </div>
               </div>
               <div className="flex justify-end">
-                <button onClick={handleSave} className="bg-brand-green text-white font-extrabold text-sm px-6 py-3 rounded-xl hover:bg-brand-green-hover transition-colors shadow-lg shadow-brand-green/20">
-                  Save Profile
-                </button>
+                <button onClick={handleSave} className="bg-brand-green text-white font-extrabold text-sm px-6 py-3 rounded-xl hover:bg-brand-green-hover transition-colors shadow-lg shadow-brand-green/20">Save Profile</button>
               </div>
             </div>
           )}
@@ -143,11 +159,7 @@ export default function SettingsPage() {
                 ].map((f) => (
                   <div key={f.label}>
                     <label className="block text-xs font-extrabold text-neutral-700 uppercase tracking-wider mb-2">{f.label}</label>
-                    <input
-                      type="password"
-                      placeholder={f.placeholder}
-                      className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green"
-                    />
+                    <input type="password" placeholder={f.placeholder} className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green" />
                   </div>
                 ))}
               </div>
@@ -157,9 +169,7 @@ export default function SettingsPage() {
                 <button className="mt-3 text-xs font-extrabold text-blue-700 border border-blue-200 px-4 py-2 rounded-lg hover:bg-blue-100 transition-colors">Enable 2FA</button>
               </div>
               <div className="flex justify-end">
-                <button onClick={handleSave} className="bg-brand-green text-white font-extrabold text-sm px-6 py-3 rounded-xl hover:bg-brand-green-hover transition-colors shadow-lg shadow-brand-green/20">
-                  Update Password
-                </button>
+                <button onClick={handleSave} className="bg-brand-green text-white font-extrabold text-sm px-6 py-3 rounded-xl hover:bg-brand-green-hover transition-colors shadow-lg shadow-brand-green/20">Update Password</button>
               </div>
             </div>
           )}
@@ -175,17 +185,12 @@ export default function SettingsPage() {
                       <p className="text-sm font-bold text-neutral-900">{n.label}</p>
                       <p className="text-xs text-neutral-400 mt-0.5">{n.desc}</p>
                     </div>
-                    <Toggle
-                      enabled={notifs[n.id]}
-                      onChange={() => setNotifs((prev) => ({ ...prev, [n.id]: !prev[n.id] }))}
-                    />
+                    <Toggle enabled={notifs[n.id]} onChange={() => setNotifs((prev) => ({ ...prev, [n.id]: !prev[n.id] }))} />
                   </div>
                 ))}
               </div>
               <div className="flex justify-end">
-                <button onClick={handleSave} className="bg-brand-green text-white font-extrabold text-sm px-6 py-3 rounded-xl hover:bg-brand-green-hover transition-colors shadow-lg shadow-brand-green/20">
-                  Save Preferences
-                </button>
+                <button onClick={handleSave} className="bg-brand-green text-white font-extrabold text-sm px-6 py-3 rounded-xl hover:bg-brand-green-hover transition-colors shadow-lg shadow-brand-green/20">Save Preferences</button>
               </div>
             </div>
           )}
@@ -203,27 +208,20 @@ export default function SettingsPage() {
                 ].map((f) => (
                   <div key={f.label}>
                     <label className="block text-xs font-extrabold text-neutral-700 uppercase tracking-wider mb-2">{f.label}</label>
-                    <input
-                      defaultValue={f.value}
-                      className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green"
-                    />
+                    <input defaultValue={f.value} className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-brand-green/30 focus:border-brand-green" />
                   </div>
                 ))}
                 <div className="md:col-span-2">
                   <label className="block text-xs font-extrabold text-neutral-700 uppercase tracking-wider mb-2">Primary Crops</label>
                   <div className="flex flex-wrap gap-2">
                     {["Maize", "Beans", "Tomatoes", "Sorghum", "Potatoes", "Cassava"].map((crop) => (
-                      <button key={crop} className="px-4 py-2 text-xs font-extrabold rounded-xl border border-brand-green/30 bg-green-50 text-brand-green hover:bg-brand-green hover:text-white transition-all">
-                        {crop}
-                      </button>
+                      <button key={crop} className="px-4 py-2 text-xs font-extrabold rounded-xl border border-brand-green/30 bg-green-50 text-brand-green hover:bg-brand-green hover:text-white transition-all">{crop}</button>
                     ))}
                   </div>
                 </div>
               </div>
               <div className="flex justify-end">
-                <button onClick={handleSave} className="bg-brand-green text-white font-extrabold text-sm px-6 py-3 rounded-xl hover:bg-brand-green-hover transition-colors shadow-lg shadow-brand-green/20">
-                  Save Farm Profile
-                </button>
+                <button onClick={handleSave} className="bg-brand-green text-white font-extrabold text-sm px-6 py-3 rounded-xl hover:bg-brand-green-hover transition-colors shadow-lg shadow-brand-green/20">Save Farm Profile</button>
               </div>
             </div>
           )}
@@ -237,14 +235,14 @@ export default function SettingsPage() {
                   <span className="text-xs font-extrabold text-brand-orange">Free Tier</span>
                 </div>
                 <h2 className="text-2xl font-extrabold mb-1">Free Farmer Plan</h2>
-                <p className="text-white/60 text-sm">You are using the free plan. Upgrade to unlock AI insights, unlimited plots, and priority expert access.</p>
+                <p className="text-white/60 text-sm">Upgrade to unlock AI insights, unlimited plots, and priority expert access.</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {[
                   { name: "Pro Farmer", price: "RWF 4,999/mo", features: ["Unlimited plots", "AI Insights (daily)", "Priority expert access", "PDF export reports"], highlight: false },
                   { name: "Cooperative", price: "RWF 14,999/mo", features: ["Everything in Pro", "Team management", "Group analytics", "Dedicated agronomist", "Custom branding"], highlight: true },
                 ].map((plan) => (
-                  <div key={plan.name} className={`rounded-2xl border p-6 ${plan.highlight ? "border-brand-green shadow-lg shadow-brand-green/10 bg-white" : "border-neutral-200 bg-white"}`}>
+                  <div key={plan.name} className={`rounded-2xl border p-6 bg-white ${plan.highlight ? "border-brand-green shadow-lg shadow-brand-green/10" : "border-neutral-200"}`}>
                     {plan.highlight && <span className="text-[10px] font-extrabold bg-brand-orange text-white px-2.5 py-1 rounded-full mb-3 inline-block">Most Popular</span>}
                     <h3 className="text-lg font-extrabold text-neutral-900 mb-1">{plan.name}</h3>
                     <p className="text-2xl font-extrabold text-brand-green mb-5">{plan.price}</p>
@@ -270,23 +268,15 @@ export default function SettingsPage() {
             <div className="bg-white rounded-2xl border border-neutral-100 shadow-sm p-7 space-y-6">
               <h2 className="text-base font-extrabold text-neutral-900">Privacy & Data</h2>
               <div className="divide-y divide-neutral-50">
-                {[
-                  { label: "Share yield data for regional insights", desc: "Help the platform build better AI models for your region", enabled: true },
-                  { label: "Allow personalized recommendations", desc: "We use your farm data to give smarter suggestions", enabled: true },
-                  { label: "Show profile in community", desc: "Let other farmers find and follow your public posts", enabled: false },
-                  { label: "Analytics & Crash Reporting", desc: "Help improve the app by sharing anonymous usage data", enabled: true },
-                ].map((item, i) => {
-                  const [on, setOn] = useState(item.enabled);
-                  return (
-                    <div key={i} className="flex items-center justify-between py-4 gap-4">
-                      <div>
-                        <p className="text-sm font-bold text-neutral-900">{item.label}</p>
-                        <p className="text-xs text-neutral-400 mt-0.5">{item.desc}</p>
-                      </div>
-                      <Toggle enabled={on} onChange={() => setOn(!on)} />
+                {privacySettings.map((item) => (
+                  <div key={item.id} className="flex items-center justify-between py-4 gap-4">
+                    <div>
+                      <p className="text-sm font-bold text-neutral-900">{item.label}</p>
+                      <p className="text-xs text-neutral-400 mt-0.5">{item.desc}</p>
                     </div>
-                  );
-                })}
+                    <Toggle enabled={privacy[item.id]} onChange={() => setPrivacy((prev) => ({ ...prev, [item.id]: !prev[item.id] }))} />
+                  </div>
+                ))}
               </div>
               <div className="p-4 bg-red-50 border border-red-100 rounded-xl flex items-start gap-3">
                 <svg className="w-4 h-4 text-red-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
