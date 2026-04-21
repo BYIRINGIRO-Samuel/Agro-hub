@@ -16,10 +16,27 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 100;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-brand-light font-sans relative">
       {/* Navigation - Fixed Glassmorphism Navbar with dynamic visibility */}
-      <div className={`fixed inset-x-0 z-[100] px-4 transition-all duration-500 pointer-events-none ${scrolled ? "top-2" : "top-8"}`}>
+      <div className={`fixed inset-x-0 z-100 px-4 transition-all duration-500 pointer-events-none ${scrolled ? "top-2" : "top-8"}`}>
         <nav className={`mx-auto w-full max-w-6xl px-6 py-3 transition-all duration-300 rounded-full flex items-center justify-between pointer-events-auto border ${
           scrolled 
             ? "bg-white/90 backdrop-blur-xl shadow-2xl border-brand-green/20" 
@@ -36,15 +53,30 @@ export default function Home() {
 
           {/* Desktop Links */}
           <div className={`hidden md:flex items-center gap-6 text-sm font-semibold transition-colors duration-300 ${scrolled ? "text-neutral-700" : "text-white/90"}`}>
-            <Link href="#home" className="hover:text-brand-green transition-colors">Home</Link>
+            <Link href="#home" onClick={(e) => scrollToSection(e, "home")} className="relative group py-1">
+              <span>Home</span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-white"}`}></span>
+            </Link>
             <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
-            <Link href="#about" className="hover:text-brand-green transition-colors">About</Link>
+            <Link href="#about" onClick={(e) => scrollToSection(e, "about")} className="relative group py-1">
+              <span>About</span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-white"}`}></span>
+            </Link>
             <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
-            <Link href="#insights" className="hover:text-brand-green transition-colors">Insights</Link>
+            <Link href="#insights" onClick={(e) => scrollToSection(e, "insights")} className="relative group py-1">
+              <span>Insights</span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-white"}`}></span>
+            </Link>
             <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
-            <Link href="#qa" className="hover:text-brand-green transition-colors">Q&A</Link>
+            <Link href="#qa" onClick={(e) => scrollToSection(e, "qa")} className="relative group py-1">
+              <span>Q&A</span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-white"}`}></span>
+            </Link>
             <div className={`w-1 h-1 rounded-full transition-colors ${scrolled ? "bg-neutral-300" : "bg-white/30"}`}></div>
-            <Link href="#testimonials" className="hover:text-brand-green transition-colors">Reviews</Link>
+            <Link href="#testimonials" onClick={(e) => scrollToSection(e, "testimonials")} className="relative group py-1">
+              <span>Reviews</span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? "bg-brand-green" : "bg-white"}`}></span>
+            </Link>
           </div>
 
           {/* CTA Button */}
