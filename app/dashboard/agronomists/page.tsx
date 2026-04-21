@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import StatCard from "../../components/StatCard";
 
 /* ─── Stat Cards ────────────────────────────────── */
@@ -43,37 +44,37 @@ const agronomists = [
     name: "Dr. Jean Paul Nkurunziza", specialty: "Soil Science & Fertility", location: "Kigali",
     experience: "12 yrs", rating: 4.9, reviews: 312, available: true,
     crops: ["Maize", "Beans", "Sorghum"], avatar: "JP", consultations: 820,
-    price: "Free", badge: "⭐ Top Rated", bio: "PhD in Soil Science from University of Rwanda. Expert in soil fertility management and precision agriculture.",
+    price: "Free", badge: "Top Rated", bio: "PhD in Soil Science from University of Rwanda. Expert in soil fertility management and precision agriculture.",
   },
   {
     name: "Aline Mukamana", specialty: "Crop Disease & Pest Management", location: "Musanze",
     experience: "8 yrs", rating: 4.8, reviews: 187, available: true,
     crops: ["Tomatoes", "Potatoes", "Beans"], avatar: "AM", consultations: 543,
-    price: "RWF 5k/session", badge: "🏆 Expert", bio: "MSc Plant Pathology. Specialized in integrated pest management and organic farming solutions.",
+    price: "RWF 5k/session", badge: "Expert", bio: "MSc Plant Pathology. Specialized in integrated pest management and organic farming solutions.",
   },
   {
     name: "Eric Nshimiye", specialty: "Irrigation & Water Management", location: "Huye",
     experience: "10 yrs", rating: 4.7, reviews: 143, available: false,
     crops: ["Rice", "Maize", "Vegetables"], avatar: "EN", consultations: 412,
-    price: "RWF 3k/session", badge: "💧 Specialist", bio: "BSc Agricultural Engineering. Focuses on efficient water use, drip irrigation systems, and drought-resistant farming.",
+    price: "RWF 3k/session", badge: "Specialist", bio: "BSc Agricultural Engineering. Focuses on efficient water use, drip irrigation systems, and drought-resistant farming.",
   },
   {
     name: "Grace Uwase", specialty: "Seed Technology & Selection", location: "Rubavu",
     experience: "6 yrs", rating: 4.9, reviews: 98, available: true,
     crops: ["Seeds", "Maize", "Sorghum"], avatar: "GU", consultations: 298,
-    price: "Free", badge: "🌱 Seed Expert", bio: "MSc Seed Technology. Expert at selecting high-yield seed varieties tailored to Rwanda's diverse climatic zones.",
+    price: "Free", badge: "Seed Expert", bio: "MSc Seed Technology. Expert at selecting high-yield seed varieties tailored to Rwanda's diverse climatic zones.",
   },
   {
     name: "David Habimana", specialty: "Organic & Sustainable Farming", location: "Kigali",
     experience: "9 yrs", rating: 4.6, reviews: 201, available: true,
     crops: ["All Crops", "Compost", "Herbs"], avatar: "DH", consultations: 631,
-    price: "RWF 4k/session", badge: "🌿 Organic", bio: "Certified organic farming consultant. Works with smallholder farmers to build sustainable, chemical-free production systems.",
+    price: "RWF 4k/session", badge: "Organic", bio: "Certified organic farming consultant. Works with smallholder farmers to build sustainable, chemical-free production systems.",
   },
   {
     name: "Marie Claire K.", specialty: "Climate Adaptation & Forecasting", location: "Kigali",
     experience: "7 yrs", rating: 4.8, reviews: 114, available: false,
     crops: ["Maize", "Wheat", "Pasture"], avatar: "MC", consultations: 345,
-    price: "RWF 6k/session", badge: "🌦️ Climate", bio: "MSc Agrometeorology. Helps farmers plan planting schedules and input use based on climate patterns and seasonal forecasts.",
+    price: "RWF 6k/session", badge: "Climate", bio: "MSc Agrometeorology. Helps farmers plan planting schedules and input use based on climate patterns and seasonal forecasts.",
   },
 ];
 
@@ -85,9 +86,15 @@ const expertArticles = [
 ];
 
 export default function AgronomistsPage() {
+  const router = useRouter();
   const [search, setSearch] = useState("");
   const [selectedSpec, setSelectedSpec] = useState("All");
   const [bookingTarget, setBookingTarget] = useState<string | null>(null);
+
+  const handleMessage = (avatar: string) => {
+    const map: Record<string, string> = { JP: "jean-paul", AM: "aline", EN: "eric", GU: "grace", DH: "david", MC: "marie" };
+    router.push(`/dashboard/messages?contact=${map[avatar] || "jean-paul"}`);
+  };
 
   const specs = ["All", "Soil Science", "Pest Management", "Irrigation", "Seeds", "Organic"];
 
@@ -127,7 +134,7 @@ export default function AgronomistsPage() {
               <p className="text-neutral-400 text-sm mt-1">with {bookingTarget}</p>
             </div>
             <div className="flex gap-2 mb-4">
-              {["Chat 💬", "Call 📞", "Video 📹"].map((type) => (
+              {["Chat", "Call", "Video"].map((type) => (
                 <button key={type} className="flex-1 py-2.5 text-xs font-extrabold border border-neutral-200 rounded-xl hover:bg-brand-green hover:text-white hover:border-brand-green transition-all">{type}</button>
               ))}
             </div>
@@ -265,7 +272,7 @@ export default function AgronomistsPage() {
                   <p className={`text-sm font-extrabold ${agro.price === "Free" ? "text-green-600" : "text-neutral-900"}`}>{agro.price}</p>
                 </div>
                 <div className="flex gap-2">
-                  <button className="p-2.5 border border-neutral-200 rounded-xl text-neutral-500 hover:bg-neutral-50 hover:border-neutral-300 transition-all">
+                  <button onClick={() => handleMessage(agro.avatar)} className="p-2.5 border border-neutral-200 rounded-xl text-neutral-500 hover:bg-neutral-50 hover:border-neutral-300 transition-all">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
                   </button>
                   <button
@@ -286,8 +293,11 @@ export default function AgronomistsPage() {
       <div className="bg-white p-7 rounded-2xl shadow-sm border border-neutral-100">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-base font-bold text-neutral-900">📚 Expert Content Hub</h2>
-            <p className="text-xs text-neutral-400 mt-0.5">Research-backed guides from verified agronomists</p>
+            <h2 className="flex items-center gap-2 text-base font-bold text-neutral-900">
+              <svg className="w-5 h-5 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+              Expert Content Hub
+            </h2>
+            <p className="text-xs text-neutral-400 mt-1 pl-7">Research-backed guides from verified agronomists</p>
           </div>
           <button className="text-xs font-extrabold text-brand-green hover:underline">View All Articles →</button>
         </div>
@@ -310,8 +320,11 @@ export default function AgronomistsPage() {
       <div className="bg-brand-green p-7 rounded-2xl">
         <div className="flex items-center justify-between mb-5">
           <div>
-            <h2 className="text-base font-bold text-white">🔔 Community Questions Needing Expert Attention</h2>
-            <p className="text-white/50 text-xs mt-0.5">These came from the community — your answer could help hundreds of farmers</p>
+            <h2 className="flex items-center gap-2 text-base font-bold text-white">
+              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+              Community Questions Needing Expert Attention
+            </h2>
+            <p className="text-white/50 text-xs mt-1 pl-7">These came from the community — your answer could help hundreds of farmers</p>
           </div>
           <span className="bg-brand-orange text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full shrink-0">14 unanswered</span>
         </div>
