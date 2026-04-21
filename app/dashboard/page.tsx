@@ -16,8 +16,6 @@ export default function DashboardOverviewPage() {
         <StatCard
           label="Total Revenue"
           value="RWF 450k"
-          growth="12.5%"
-          growthPositive={true}
           icon={
             <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -27,8 +25,6 @@ export default function DashboardOverviewPage() {
         <StatCard
           label="Active Farmers"
           value="20,412"
-          growth="8.3%"
-          growthPositive={true}
           icon={
             <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -38,8 +34,6 @@ export default function DashboardOverviewPage() {
         <StatCard
           label="Total Yield Volume"
           value="4.8 Tons"
-          growth="2.4T"
-          growthPositive={true}
           variant="filled"
           icon={
             <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
