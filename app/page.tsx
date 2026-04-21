@@ -222,7 +222,7 @@ export default function Home() {
             <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z" fill="#22c55e" />
           </svg>
         </div>
-        <div className="absolute top-[60%] right-[3%] animate-float-delayed pointer-events-none hidden lg:block transform -rotate-45 z-30">
+        <div className="absolute top-[60%] right-[3%] animate-float-delayed pointer-events-none hidden lg:block transform -rotate-45 z-30 opacity-20 scale-75">
           <svg width="140" height="140" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z" fill="#166534" />
           </svg>
@@ -261,11 +261,6 @@ export default function Home() {
 
           {/* Right Column - Text Content */}
           <div className="flex flex-col gap-6 lg:pl-6 order-1 lg:order-2">
-            <div className="flex items-center gap-2 text-brand-green font-bold text-xs tracking-widest uppercase">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7"/></svg>
-              Discover Our Platform
-            </div>
-            
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 leading-[1.15] mb-2 drop-shadow-sm">
               Advanced Agricultural <br/> Ecosystem
             </h2>
