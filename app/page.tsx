@@ -172,6 +172,7 @@ export default function Home() {
                 src="/about_img_1.png" 
                 alt="Agronomist inspecting plants" 
                 fill
+                sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover"
               />
             </div>
@@ -183,6 +184,7 @@ export default function Home() {
                   src="/about_img_3.png" 
                   alt="Farmer in the field" 
                   fill
+                  sizes="(max-width: 768px) 50vw, 20vw"
                   className="object-cover"
                 />
               </div>
@@ -191,6 +193,7 @@ export default function Home() {
                   src="/about_img_2.png" 
                   alt="Smiling farmer holding plant" 
                   fill
+                  sizes="(max-width: 768px) 50vw, 20vw"
                   className="object-cover"
                 />
               </div>
@@ -303,6 +306,7 @@ export default function Home() {
                 src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=800&auto=format&fit=crop" 
                 alt="Farmers harvesting" 
                 fill 
+                sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 450px"
                 className="object-cover" 
               />
             </div>
@@ -311,6 +315,7 @@ export default function Home() {
                 src="/about_img_2.png" 
                 alt="Agronomist smiling" 
                 fill 
+                sizes="(max-width: 768px) 144px, 176px"
                 className="object-cover" 
               />
             </div>
@@ -387,7 +392,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl md:text-2xl font-medium text-white leading-snug mb-8">"Joining Agro-hub has completely transformed my harvest schedule. The knowledge I've gained is truly invaluable."</h3>
               <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 relative rounded-full overflow-hidden border-2 border-white/20"><Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Farmer David" fill className="object-cover" /></div>
+                <div className="w-12 h-12 relative rounded-full overflow-hidden border-2 border-white/20"><Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Farmer David" fill sizes="48px" className="object-cover" /></div>
                 <div><p className="font-bold text-white text-base">David M.</p><p className="text-brand-orange text-sm font-semibold">Organic Farmer</p></div>
               </div>
             </div>
@@ -399,7 +404,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl md:text-2xl font-medium text-white leading-snug mb-8">"The Farm Management Dashboard allows me to track yields effortlessly. Overwatering alerts alone saved my crop."</h3>
               <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 relative rounded-full overflow-hidden border-2 border-white/20"><Image src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Sarah Jenkins" fill className="object-cover" /></div>
+                <div className="w-12 h-12 relative rounded-full overflow-hidden border-2 border-white/20"><Image src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Sarah Jenkins" fill sizes="48px" className="object-cover" /></div>
                 <div><p className="font-bold text-white text-base">Sarah J.</p><p className="text-brand-orange text-sm font-semibold">Wheat Producer</p></div>
               </div>
             </div>
@@ -411,7 +416,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl md:text-2xl font-medium text-white leading-snug mb-8">"Connecting directly to buyers through the marketplace cut out middlemen. My profit margins are up 30% this year."</h3>
               <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 relative rounded-full overflow-hidden border-2 border-white/20"><Image src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=200&auto=format&fit=crop" alt="Michael T." fill className="object-cover" /></div>
+                <div className="w-12 h-12 relative rounded-full overflow-hidden border-2 border-white/20"><Image src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=200&auto=format&fit=crop" alt="Michael T." fill sizes="48px" className="object-cover" /></div>
                 <div><p className="font-bold text-white text-base">Michael T.</p><p className="text-brand-orange text-sm font-semibold">Commercial Grower</p></div>
               </div>
             </div>
