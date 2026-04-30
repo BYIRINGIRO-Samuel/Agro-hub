@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
@@ -45,7 +45,23 @@ const mockMessages: Record<string, { from: "me" | "them"; text: string; time: st
   ],
 };
 
+/* ─── Wrapper with Suspense ────────────────────── */
 export default function MessagesPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex h-[calc(100vh-120px)] bg-white rounded-2xl border border-neutral-100 shadow-sm items-center justify-center">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-10 h-10 border-4 border-brand-green border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-sm text-neutral-500 font-medium">Loading messages...</p>
+        </div>
+      </div>
+    }>
+      <MessagesContent />
+    </Suspense>
+  );
+}
+
+function MessagesContent() {
   const searchParams = useSearchParams();
   const initContact = searchParams.get("contact") ?? "jean-paul";
   const [activeId, setActiveId] = useState(initContact);
