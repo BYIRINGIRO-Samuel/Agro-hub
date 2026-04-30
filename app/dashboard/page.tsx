@@ -112,20 +112,35 @@ export default function DashboardOverviewPage() {
 
         {/* Mini Calendar */}
         <div className="bg-brand-green p-7 rounded-2xl flex flex-col">
-          <div className="flex items-center justify-between mb-5">
-            <h2 className="text-base font-bold text-white">Calendar</h2>
-            <span className="text-white/70 text-xs font-semibold">April 2025</span>
-          </div>
-          <div className="grid grid-cols-7 gap-0.5 text-center text-[10px] text-white/50 font-bold mb-2">
-            {["S","M","T","W","T","F","S"].map((d, i) => <span key={i}>{d}</span>)}
-          </div>
-          <div className="grid grid-cols-7 gap-0.5 text-center text-xs text-white/80 font-medium">
-            {[...Array(2).fill(null), ...Array(30).fill(null).map((_, i) => i + 1)].map((d, i) => (
-              <span key={i} className={`py-1.5 rounded-lg cursor-pointer transition-colors ${d === 21 ? "bg-white text-brand-green font-extrabold" : d === null ? "" : "hover:bg-white/20"}`}>
-                {d ?? ""}
-              </span>
-            ))}
-          </div>
+          {(() => {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = today.getMonth();
+            const date = today.getDate();
+            const monthName = today.toLocaleString('default', { month: 'long' });
+            
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            
+            return (
+              <>
+                <div className="flex items-center justify-between mb-5">
+                  <h2 className="text-base font-bold text-white">Calendar</h2>
+                  <span className="text-white/70 text-xs font-semibold">{monthName} {year}</span>
+                </div>
+                <div className="grid grid-cols-7 gap-0.5 text-center text-[10px] text-white/50 font-bold mb-2">
+                  {["S","M","T","W","T","F","S"].map((d, i) => <span key={i}>{d}</span>)}
+                </div>
+                <div className="grid grid-cols-7 gap-0.5 text-center text-xs text-white/80 font-medium">
+                  {[...Array(firstDayOfMonth).fill(null), ...Array(daysInMonth).fill(null).map((_, i) => i + 1)].map((d, i) => (
+                    <span key={i} className={`py-1.5 rounded-lg cursor-pointer transition-colors ${d === date ? "bg-white text-brand-green font-extrabold" : d === null ? "" : "hover:bg-white/20"}`}>
+                      {d ?? ""}
+                    </span>
+                  ))}
+                </div>
+              </>
+            );
+          })()}
           <div className="mt-5 pt-4 border-t border-white/10">
             <p className="text-white/60 text-[10px] font-bold uppercase tracking-wider mb-2">Today&apos;s Plan</p>
             <div className="flex flex-col gap-2">
