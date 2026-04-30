@@ -171,17 +171,6 @@ export default function LoadingScreen({ onFinish }: { onFinish: () => void }) {
               </span>
               <span className="text-white">Hub</span>
             </h2>
-
-            {/* Tagline */}
-            <p
-              className="text-[10px] font-bold tracking-[0.2em] uppercase text-center max-w-[140px] leading-relaxed transition-all duration-700"
-              style={{
-                color: p < 50 ? "rgba(217,119,6,0.6)" : "rgba(134,239,172,0.7)",
-                opacity: p > 20 ? 1 : 0,
-              }}
-            >
-              {p < 50 ? "Empowering Farmers" : "Nurturing the Future"}
-            </p>
           </div>
         </div>
 
