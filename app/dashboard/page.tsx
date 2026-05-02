@@ -22,7 +22,6 @@ export default function DashboardOverviewPage() {
         <p className="text-neutral-500 font-medium">Welcome back, Fabrice. Here is what&apos;s happening in your farm today.</p>
       </div>
 
-      {/* KPI Cards - alternating white/green */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
         <StatCard
           label="Total Revenue"
